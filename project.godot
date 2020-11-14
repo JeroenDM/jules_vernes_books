@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Hot Air Balloon"
-run/main_scene="res://around_the_world/levels/World.tscn"
+run/main_scene="res://StartMenu.tscn"
 config/icon="res://icon.png"
 
 [input]
