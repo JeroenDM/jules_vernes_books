@@ -64,7 +64,7 @@ text = "Quit Game"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="CenterContainer/VBoxContainer/Level1" to="." method="_on_StartGameButton_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Level1" to="." method="_on_Level1_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Level2" to="." method="_on_StartGameButton_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Level3" to="." method="_on_StartGameButton_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Level4" to="." method="_on_StartGameButton_pressed"]
