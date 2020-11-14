@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://WorldComplete.tscn" type="PackedScene" id=2]
-[ext_resource path="res://DirtAutoTile.tres" type="TileSet" id=3]
+[ext_resource path="res://journey_to_the_centre_of_the_earth/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://journey_to_the_centre_of_the_earth/WorldComplete.tscn" type="PackedScene" id=2]
+[ext_resource path="res://journey_to_the_centre_of_the_earth/DirtAutoTile.tres" type="TileSet" id=3]
 
 [node name="World" type="Node2D"]
 
