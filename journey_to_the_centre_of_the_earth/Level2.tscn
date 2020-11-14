@@ -4,9 +4,6 @@
 [ext_resource path="res://journey_to_the_centre_of_the_earth/WorldComplete.tscn" type="PackedScene" id=2]
 [ext_resource path="res://journey_to_the_centre_of_the_earth/DirtAutoTile.tres" type="TileSet" id=3]
 
-
-
-
 [node name="World" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
@@ -14,7 +11,7 @@ position = Vector2( 64, 224 )
 
 [node name="WorldComplete" parent="." instance=ExtResource( 2 )]
 position = Vector2( 576, 224 )
-next_world = "res://Level1.tscn"
+next_world = "res://journey_to_the_centre_of_the_earth/Level1.tscn"
 
 [node name="AutoTile" type="TileMap" parent="."]
 tile_set = ExtResource( 3 )
