@@ -1,8 +1,9 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://objects/Balloon.gd" type="Script" id=1]
+[ext_resource path="res://around_the_world/objects/Balloon.gd" type="Script" id=1]
 [ext_resource path="res://assets/icon.png" type="Texture" id=2]
-[ext_resource path="res://objects/Winch.tscn" type="PackedScene" id=3]
+[ext_resource path="res://around_the_world/objects/Winch.tscn" type="PackedScene" id=3]
+
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 5.0

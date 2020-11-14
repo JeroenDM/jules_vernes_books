@@ -2,9 +2,10 @@
 
 [ext_resource path="res://assets/platformPack_tilesheet@2.png" type="Texture" id=1]
 [ext_resource path="res://assets/platformPack_item004.png" type="Texture" id=2]
-[ext_resource path="res://objects/Balloon.tscn" type="PackedScene" id=3]
+[ext_resource path="res://around_the_world/objects/Balloon.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/sky1.png" type="Texture" id=4]
-[ext_resource path="res://objects/Box.tscn" type="PackedScene" id=5]
+[ext_resource path="res://around_the_world/objects/Box.tscn" type="PackedScene" id=5]
+
 
 [sub_resource type="ConcavePolygonShape2D" id=1]
 segments = PoolVector2Array( 37.6, 128, 20.8, 114.4, 20.8, 114.4, 37.6, 107.2, 37.6, 107.2, 29.2, 76, 29.2, 76, 61.6, 84.4, 61.6, 84.4, 82, 54.4, 82, 54.4, 85.6, 88, 85.6, 88, 106, 96.4, 106, 96.4, 90.4, 125.2, 90.4, 125.2, 37.6, 128 )
