@@ -7,6 +7,7 @@ const ACCELERATION = 50
 const JUMP_HEIGHT = -650
 
 var motion = Vector2()
+signal collided
 
 func _physics_process(delta):
 	motion.y += GRAVITY
@@ -43,6 +44,8 @@ func _physics_process(delta):
 	# drill
 	if Input.is_action_pressed("ui_accept"):
 		$Sprite.play("Drill")
-		var target = get_slide_collision(0)
-		print(target.collider.name)
+		for i in get_slide_count():
+			var collision = get_slide_collision(i)
+			if collision:
+				emit_signal('collided', collision)
 		
