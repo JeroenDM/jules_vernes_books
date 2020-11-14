@@ -29,3 +29,8 @@ func _physics_process(delta: float) -> void:
 	set_applied_force(thrust)
 	
 	set_applied_torque(0.1 * rotation)
+
+
+func _on_food_detector_body_entered(body: Node) -> void:
+	if body.name == "FoodPack":
+		body.queue_free()

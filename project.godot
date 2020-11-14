@@ -31,7 +31,8 @@ wich_out={
 
 2d_physics/layer_1="player"
 2d_physics/layer_2="world"
-2d_physics/layer_3="joint_limiter"
+2d_physics/layer_3="food"
+2d_physics/layer_4="hook"
 
 [rendering]
 

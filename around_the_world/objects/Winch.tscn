@@ -4,7 +4,6 @@
 [ext_resource path="res://around_the_world/objects/Winch.gd" type="Script" id=2]
 [ext_resource path="res://assets/hook.png" type="Texture" id=3]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 18.367, 8.79318 )
 
@@ -24,7 +23,8 @@ __meta__ = {
 }
 
 [node name="hook" type="KinematicBody2D" parent="."]
-collision_mask = 2
+collision_layer = 8
+collision_mask = 14
 
 [node name="hook" type="Sprite" parent="hook"]
 position = Vector2( 0, 18.228 )
