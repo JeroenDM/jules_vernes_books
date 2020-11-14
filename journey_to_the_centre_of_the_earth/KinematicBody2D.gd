@@ -12,6 +12,7 @@ func _physics_process(delta):
 	motion.y += GRAVITY
 	var friction = false
 	
+	# move
 	if Input.is_action_pressed("ui_right"):
 		motion.x = min(motion.x + ACCELERATION, MAX_SPEED)
 		$Sprite.flip_h = false
@@ -38,4 +39,10 @@ func _physics_process(delta):
 			motion.x = lerp(motion.x, 0, 0.05)
 	
 	motion = move_and_slide(motion, UP)
-	pass
+	
+	# drill
+	if Input.is_action_pressed("ui_accept"):
+		$Sprite.play("Drill")
+		var target = get_slide_collision(0)
+		print(target.collider.name)
+		

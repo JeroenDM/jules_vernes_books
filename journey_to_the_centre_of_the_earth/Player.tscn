@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://journey_to_the_centre_of_the_earth/KinematicBody2D.gd" type="Script" id=1]
 [ext_resource path="res://journey_to_the_centre_of_the_earth/Sprites/Player/Run7.png" type="Texture" id=2]
@@ -11,9 +11,15 @@
 [ext_resource path="res://journey_to_the_centre_of_the_earth/Sprites/Player/Run4.png" type="Texture" id=9]
 [ext_resource path="res://journey_to_the_centre_of_the_earth/Sprites/Player/Run3.png" type="Texture" id=10]
 [ext_resource path="res://journey_to_the_centre_of_the_earth/Sprites/Tiles/Sky.png" type="Texture" id=11]
+[ext_resource path="res://journey_to_the_centre_of_the_earth/Sprites/Player/Drill1.png" type="Texture" id=12]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "Drill",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 6 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "Run",
@@ -47,7 +53,7 @@ __meta__ = {
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-animation = "Idle"
+animation = "Jump"
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
