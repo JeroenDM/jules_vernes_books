@@ -9,7 +9,7 @@ var max_properties = {'tile': {'strength': max_tile_strength, 'solid': false,
 					  2: {'strength': 3, 'solid': false, 'message': 'You have collected food'},
 					  3: {'strength': 3, 'solid': false, 'message': 'You have collected explosives'},
 					  4: {'strength': 3, 'solid': false, 'message': 'You have collected a platform'},
-					  5: {'strength': 3, 'solid': false, 'message': 'You have collected something else entirely'},
+					  5: {'strength': 3, 'solid': false, 'message': 'You have collected a map'},
 					  6: {'strength': 3, 'solid': false, 'message': 'You have collected something else entirely'},
 					 }
 var tile_properties = {}
