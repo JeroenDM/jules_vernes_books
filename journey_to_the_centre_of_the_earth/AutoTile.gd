@@ -48,9 +48,15 @@ func _on_Player_collided(collision, time):
 			$Cracks.set_cellv(tile_pos, floor((1-strength/max_tile_strength)*4))
 			
 			if strength == 0:
+				# remove ground tile
 				$Cracks.set_cellv(tile_pos, -1)
 				target.set_cellv(tile_pos, -1)
 				target.update_bitmask_area(tile_pos)
+				
+				# spawn other tile //TODO//
+				var object = randi() % 10
+				object = -1
+				$HiddenObjects.set_cellv(tile_pos, object)
 		
 		if solid:
-			pass
+			$CanvasLayer/HUD.show_text('This rock is too hard!', 2)

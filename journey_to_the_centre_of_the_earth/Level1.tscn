@@ -108,4 +108,7 @@ tile_data = PoolIntArray( 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource( 10 )]
 enable_food_bar = false
+
+[node name="HiddenObjects" type="TileMap" parent="."]
+format = 1
 [connection signal="collided" from="Player" to="." method="_on_Player_collided"]
