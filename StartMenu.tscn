@@ -13,10 +13,10 @@ __meta__ = {
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -185.5
-margin_top = -98.0
-margin_right = -185.5
-margin_bottom = -98.0
+margin_left = -184.659
+margin_top = -98.4205
+margin_right = -184.659
+margin_bottom = -98.4205
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -30,6 +30,7 @@ margin_bottom = 367.0
 [node name="Title" type="Label" parent="CenterContainer/VBoxContainer"]
 margin_right = 265.0
 margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Jules Verne's books"
 
 [node name="Level1" type="Button" parent="CenterContainer/VBoxContainer"]
