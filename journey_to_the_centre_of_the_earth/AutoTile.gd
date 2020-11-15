@@ -1,4 +1,4 @@
-extends TileMap
+extends Node2D
 
 export(int) var max_tile_strength = 1 # seconds
 var tile_properties = {}
@@ -26,13 +26,17 @@ func reduce_strength(pos, value):
 func _on_Player_collided(collision, time):
 	var target = collision.collider
 	if target is TileMap:
-		var tile_pos = target.world_to_map(get_node("../Player").position)
+		var tile_pos = target.world_to_map($Player.position)
 		
 		tile_pos -= collision.normal
 		
 		reduce_strength(tile_pos, time)
 		
 		var strength = get_strength(tile_pos)
-		if strength == 0:
-			target.set_cellv(tile_pos, -1)
-			target.update_bitmask_area(tile_pos)
+		if strength < max_tile_strength:
+			$Cracks.set_cellv(tile_pos, floor((1-strength/max_tile_strength)*4))
+			
+			if strength == 0:
+				$Cracks.set_cellv(tile_pos, -1)
+				target.set_cellv(tile_pos, -1)
+				target.update_bitmask_area(tile_pos)
