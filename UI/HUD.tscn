@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://UI/HUD.gd" type="Script" id=1]
+
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.301961, 0.65098, 1, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.278431, 0.231373, 0.470588, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="HUD" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FoodBar" type="ProgressBar" parent="."]
+margin_left = 12.8921
+margin_top = 28.5137
+margin_right = 156.892
+margin_bottom = 44.5137
+custom_styles/fg = SubResource( 2 )
+custom_styles/bg = SubResource( 1 )
+value = 50.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="FoodBar"]
+margin_left = 2.08111
+margin_top = -14.5678
+margin_right = 68.0811
+margin_bottom = -0.567795
+custom_colors/font_color = Color( 0.278431, 0.231373, 0.470588, 1 )
+text = "Food level"
+__meta__ = {
+"_edit_use_anchors_": false
+}
