@@ -47,5 +47,5 @@ func _physics_process(delta):
 		for i in get_slide_count():
 			var collision = get_slide_collision(i)
 			if collision:
-				emit_signal('collided', collision)
+				emit_signal('collided', collision, delta)
 		
