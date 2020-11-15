@@ -40,3 +40,6 @@ func show_text(text, time = 3):
 
 func hide_text():
 	$TextBox.visible = false
+
+func _on_TextTime_timeout():
+	hide_text()

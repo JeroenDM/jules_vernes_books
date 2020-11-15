@@ -106,3 +106,4 @@ __meta__ = {
 }
 
 [node name="TextTime" type="Timer" parent="."]
+[connection signal="timeout" from="TextTime" to="." method="_on_TextTime_timeout"]
