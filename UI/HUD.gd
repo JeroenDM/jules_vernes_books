@@ -1,8 +1,12 @@
 extends Control
 
+export(bool) var enable_food_bar = true
 onready var _food_bar : ProgressBar = $FoodBar
 onready var _damage_bar : ProgressBar = $DamageBar
 
+
+func _ready():
+	$FoodBar.visible = enable_food_bar
 
 func set_food(value : int) -> void:
 	if _food_bar == null:
