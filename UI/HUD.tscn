@@ -29,6 +29,8 @@ corner_radius_bottom_left = 4
 [node name="HUD" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = -2.37842
+margin_bottom = -2.37842
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -81,3 +83,26 @@ text = "Food level"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="TextBox" type="Panel" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -100.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="TextBox"]
+anchor_left = -0.00116134
+anchor_top = -0.0118921
+anchor_right = 0.998839
+anchor_bottom = 0.988108
+text = "This is a dummy text"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextTime" type="Timer" parent="."]

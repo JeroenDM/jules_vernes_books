@@ -7,6 +7,7 @@ onready var _damage_bar : ProgressBar = $DamageBar
 
 func _ready():
 	$FoodBar.visible = enable_food_bar
+	$TextBox.visible = false
 
 func set_food(value : int) -> void:
 	if _food_bar == null:
@@ -31,3 +32,11 @@ func set_max_damage(value : int) -> void:
 		print("This node should be at the top of the Scene tree")
 	else:
 		_damage_bar.set_max(value)
+		
+func show_text(text, time = 3):
+	$TextTime.start(time)
+	$TextBox/Label.text = text
+	$TextBox.visible = true
+
+func hide_text():
+	$TextBox.visible = false
