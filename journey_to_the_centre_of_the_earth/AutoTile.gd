@@ -11,4 +11,3 @@ func _on_Player_collided(collision):
 		print(tile_pos)
 		target.set_cellv(tile_pos, -1)
 		target.update_bitmask_area(tile_pos)
-		
