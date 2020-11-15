@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/platformPack_tilesheet@2.png" type="Texture" id=1]
-[ext_resource path="res://assets/background_1.png" type="Texture" id=2]
+[ext_resource path="res://backgrounds/CloudsBackground.tscn" type="PackedScene" id=2]
 [ext_resource path="res://around_the_world/objects/Balloon.tscn" type="PackedScene" id=3]
 [ext_resource path="res://around_the_world/objects/Clouds.tscn" type="PackedScene" id=4]
 [ext_resource path="res://around_the_world/objects/Box.tscn" type="PackedScene" id=5]
@@ -159,35 +159,7 @@ __meta__ = {
 "_edit_horizontal_guides_": [ 759.657, -273.009 ]
 }
 
-[node name="Background" type="Node2D" parent="."]
-
-[node name="Image" type="TextureRect" parent="Background"]
-self_modulate = Color( 1, 1, 1, 0.74902 )
-margin_top = -265.0
-margin_right = 4160.0
-margin_bottom = 769.0
-texture = ExtResource( 2 )
-stretch_mode = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Clouds" parent="Background" instance=ExtResource( 4 )]
-position = Vector2( 670.987, -30.3825 )
-
-[node name="Clouds2" parent="Background" instance=ExtResource( 4 )]
-position = Vector2( 3411.88, 226.889 )
-
-[node name="Clouds3" parent="Background" instance=ExtResource( 4 )]
-position = Vector2( 939.877, 378.889 )
-
-[node name="Clouds4" parent="Background" instance=ExtResource( 4 )]
-position = Vector2( 2543.88, 16.6175 )
-offset = Vector2( -172, -9.72812 )
-
-[node name="Clouds5" parent="Background" instance=ExtResource( 4 )]
-position = Vector2( 3455.88, -75.3825 )
-offset = Vector2( -172, -9.72812 )
+[node name="CloudsBackground" parent="." instance=ExtResource( 2 )]
 
 [node name="overlay" type="CanvasLayer" parent="."]
 layer = 2
