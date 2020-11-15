@@ -10,7 +10,7 @@ extents = Vector2( 27.5544, 27.75 )
 extents = Vector2( 27.7353, 10 )
 
 [node name="FoodPack" type="KinematicBody2D"]
-collision_layer = 2
+collision_layer = 18
 script = ExtResource( 2 )
 
 [node name="food_packet" type="Sprite" parent="."]

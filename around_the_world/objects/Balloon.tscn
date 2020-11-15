@@ -39,13 +39,14 @@ shape = SubResource( 3 )
 current = true
 zoom = Vector2( 1.5, 1.5 )
 limit_left = 0
-limit_top = 0
 
 [node name="Winch" parent="." instance=ExtResource( 3 )]
 position = Vector2( -5.07495, -2.83615 )
 
 [node name="food_detector" type="Area2D" parent="."]
-collision_mask = 4
+monitorable = false
+collision_layer = 0
+collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="food_detector"]
 position = Vector2( 0, 2.11893 )
