@@ -7,7 +7,6 @@ var body_copied := false
 func _process(delta: float) -> void:
 	if _picked:
 		position = hook.global_position
-		print(hook.position)
 	
 
 

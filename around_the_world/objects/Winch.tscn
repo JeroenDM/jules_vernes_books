@@ -5,16 +5,16 @@
 [ext_resource path="res://assets/hook.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 18.367, 8.79318 )
+extents = Vector2( 9.75, 4.9973 )
 
 [node name="Winch" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="texture" type="TextureRect" parent="."]
-margin_left = -4.0
-margin_top = -0.629959
-margin_right = 4.0
-margin_bottom = 0.370041
+margin_left = -2.0
+margin_top = -0.63
+margin_right = 2.0
+margin_bottom = 0.37
 texture = ExtResource( 1 )
 expand = true
 stretch_mode = 2
@@ -27,12 +27,12 @@ collision_layer = 8
 collision_mask = 14
 
 [node name="hook" type="Sprite" parent="hook"]
-position = Vector2( 0, 18.228 )
-scale = Vector2( 0.188068, 0.188068 )
+position = Vector2( 0, 9.76 )
+scale = Vector2( 0.103391, 0.103391 )
 texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( 2, 58, 186, 200 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hook"]
-position = Vector2( 0, 27.4973 )
+position = Vector2( -0.375, 14.8723 )
 shape = SubResource( 1 )
