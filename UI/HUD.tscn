@@ -2,8 +2,7 @@
 
 [ext_resource path="res://UI/HUD.gd" type="Script" id=1]
 
-
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.301961, 0.65098, 1, 1 )
 border_width_left = 2
 border_width_top = 2
@@ -15,7 +14,7 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[sub_resource type="StyleBoxFlat" id=1]
+[sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.278431, 0.231373, 0.470588, 1 )
 border_width_left = 2
 border_width_top = 2
@@ -35,13 +34,37 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="DamageBar" type="ProgressBar" parent="."]
+margin_left = 2.24492
+margin_top = 32.5513
+margin_right = 146.245
+margin_bottom = 48.5513
+custom_styles/fg = SubResource( 1 )
+custom_styles/bg = SubResource( 2 )
+value = 50.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="DamageBar"]
+margin_left = 2.08111
+margin_top = -14.5678
+margin_right = 68.0811
+margin_bottom = -0.567795
+custom_colors/font_color = Color( 0.278431, 0.231373, 0.470588, 1 )
+text = "Damage"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="FoodBar" type="ProgressBar" parent="."]
-margin_left = 12.8921
-margin_top = 28.5137
-margin_right = 156.892
-margin_bottom = 44.5137
-custom_styles/fg = SubResource( 2 )
-custom_styles/bg = SubResource( 1 )
+margin_left = 2.24492
+margin_top = 82.5008
+margin_right = 146.245
+margin_bottom = 98.5008
+custom_styles/fg = SubResource( 1 )
+custom_styles/bg = SubResource( 2 )
 value = 50.0
 percent_visible = false
 __meta__ = {

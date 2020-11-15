@@ -7,7 +7,6 @@
 [ext_resource path="res://around_the_world/objects/FoodPack.tscn" type="PackedScene" id=6]
 [ext_resource path="res://UI/HUD.tscn" type="PackedScene" id=7]
 
-
 [sub_resource type="ConcavePolygonShape2D" id=1]
 segments = PoolVector2Array( 37.6, 128, 20.8, 114.4, 20.8, 114.4, 37.6, 107.2, 37.6, 107.2, 29.2, 76, 29.2, 76, 61.6, 84.4, 61.6, 84.4, 82, 54.4, 82, 54.4, 85.6, 88, 85.6, 88, 106, 96.4, 106, 96.4, 90.4, 125.2, 90.4, 125.2, 37.6, 128 )
 
