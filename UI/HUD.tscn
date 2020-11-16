@@ -36,20 +36,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="DamageBar" type="ProgressBar" parent="."]
+[node name="HealthBar" type="ProgressBar" parent="."]
 margin_left = 2.24492
 margin_top = 32.5513
 margin_right = 146.245
 margin_bottom = 48.5513
 custom_styles/fg = SubResource( 1 )
 custom_styles/bg = SubResource( 2 )
-value = 50.0
+max_value = 10.0
+value = 10.0
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="DamageBar"]
+[node name="Label" type="Label" parent="HealthBar"]
 margin_left = 2.08111
 margin_top = -14.5678
 margin_right = 68.0811
@@ -106,4 +107,19 @@ __meta__ = {
 }
 
 [node name="TextTime" type="Timer" parent="."]
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+modulate = Color( 1, 0, 0, 1 )
+self_modulate = Color( 1, 1, 1, 0.690196 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BleedTimer" type="Timer" parent="."]
 [connection signal="timeout" from="TextTime" to="." method="_on_TextTime_timeout"]
+[connection signal="timeout" from="BleedTimer" to="." method="stop_bleeding"]

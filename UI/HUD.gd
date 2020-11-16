@@ -32,6 +32,13 @@ func set_max_health(value : int) -> void:
 		print("This node should be at the top of the Scene tree")
 	else:
 		_health_bar.set_max(max(1, value))
+	
+func bleed() -> void:
+	$Panel.visible = true
+	$BleedTimer.start()
+	
+func stop_bleeding() -> void:
+	$Panel.visible = false
 		
 func show_text(text, time = 3):
 	$TextTime.start(time)
