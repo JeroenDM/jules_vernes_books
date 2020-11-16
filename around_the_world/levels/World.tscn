@@ -48,7 +48,7 @@ position = Vector2( 503.021, 454.38 )
 position = Vector2( 764.22, 764.688 )
 
 [node name="FoodPack2" parent="." instance=ExtResource( 6 )]
-position = Vector2( 182.349, 744.148 )
+position = Vector2( 115.828, 728.666 )
 
 [node name="FoodPack3" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1429.04, 726.272 )

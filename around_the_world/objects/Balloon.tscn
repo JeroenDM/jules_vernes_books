@@ -46,7 +46,7 @@ shape = SubResource( 3 )
 position = Vector2( 30.871, 41.0026 )
 
 [node name="food_detector" type="Area2D" parent="."]
-position = Vector2( 5.94603, 64.8118 )
+position = Vector2( 13.946, 71.8118 )
 monitorable = false
 collision_layer = 0
 collision_mask = 16
