@@ -70,6 +70,11 @@ func _physics_process(delta: float) -> void:
 	set_applied_torque(0.1 * rotation)
 
 func _on_food_detector_body_entered(body: Node) -> void:
-	# TODO get's called too much, food increases by a lot
-	set_food(_food + 1)
+	$food_detector/CollisionShape2D.disabled = true
 	body.queue_free()
+	set_food(_food + 1)
+	$food_detector/CollisionShape2D.disabled = false
+
+
+func _on_body_entered(body: Node) -> void:
+	pass # Replace with function body.
