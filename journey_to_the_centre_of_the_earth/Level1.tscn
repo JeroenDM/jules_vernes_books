@@ -263,6 +263,11 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 [node name="World" type="Node2D"]
 script = ExtResource( 4 )
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource( 10 )]
+enable_food_bar = false
+
 [node name="Ground" type="TileMap" parent="."]
 tile_set = ExtResource( 3 )
 cell_quadrant_size = 32
@@ -273,11 +278,6 @@ tile_data = PoolIntArray( -458774, 0, 5, -524257, 0, 5, -393238, 0, 65541, -4587
 tile_set = SubResource( 1 )
 format = 1
 tile_data = PoolIntArray( 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0 )
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="HUD" parent="CanvasLayer" instance=ExtResource( 10 )]
-enable_food_bar = false
 
 [node name="HiddenObjects" type="TileMap" parent="."]
 tile_set = SubResource( 9 )
@@ -290,3 +290,4 @@ next_world = "res://journey_to_the_centre_of_the_earth/Level2.tscn"
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -1288, 192 )
 [connection signal="collided" from="Player" to="." method="_on_Player_collided"]
+[connection signal="damage" from="Player" to="CanvasLayer/HUD" method="set_health"]

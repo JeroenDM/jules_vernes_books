@@ -9,6 +9,7 @@ const JUMP_HEIGHT = -650
 var motion = Vector2()
 var health = 10
 signal collided
+signal damage
 
 func _physics_process(delta):
 	motion.y += GRAVITY
@@ -40,11 +41,12 @@ func _physics_process(delta):
 		if friction:
 			motion.x = lerp(motion.x, 0, 0.05)
 	
+	var impact = motion.y/100
 	motion = move_and_slide(motion, UP)
-	if motion.length() > 3:
-		var damage = max(motion.length()-3,0)
+	if is_on_floor() and impact > 9:
+		var damage = round(max(impact-9,0))
 		health -= damage
-		print(health)
+		emit_signal('damage', health)
 	
 	# drill
 	if Input.is_action_pressed("ui_accept"):
