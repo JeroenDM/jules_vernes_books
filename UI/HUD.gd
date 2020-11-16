@@ -2,7 +2,7 @@ extends Control
 
 export(bool) var enable_food_bar = true
 onready var _food_bar : ProgressBar = $FoodBar
-onready var _damage_bar : ProgressBar = $DamageBar
+onready var _health_bar : ProgressBar = $HealthBar
 
 
 func _ready():
@@ -13,25 +13,25 @@ func set_food(value : int) -> void:
 	if _food_bar == null:
 		print("This node should be at the top of the Scene tree")
 	else:
-		_food_bar.set_value(value)
+		_food_bar.set_value(clamp(value, 0, _food_bar.get_max()))
 	
 func set_max_food(value : int) -> void:
 	if _food_bar == null:
 		print("This node should be at the top of the Scene tree")
 	else:
-		_food_bar.set_max(value)
+		_food_bar.set_max(max(1, value))
 
-func set_damage(value : int) -> void:
-	if _damage_bar == null:
+func set_health(value : int) -> void:
+	if _health_bar == null:
 		print("This node should be at the top of the Scene tree")
 	else:
-		_damage_bar.set_value(value)
+		_health_bar.set_value(clamp(value, 0, _health_bar.get_max()))
 	
-func set_max_damage(value : int) -> void:
-	if _damage_bar == null:
+func set_max_health(value : int) -> void:
+	if _health_bar == null:
 		print("This node should be at the top of the Scene tree")
 	else:
-		_damage_bar.set_max(value)
+		_health_bar.set_max(max(1, value))
 		
 func show_text(text, time = 3):
 	$TextTime.start(time)
