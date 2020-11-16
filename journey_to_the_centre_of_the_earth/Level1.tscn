@@ -290,4 +290,3 @@ next_world = "res://journey_to_the_centre_of_the_earth/Level2.tscn"
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -1288, 192 )
 [connection signal="collided" from="Player" to="." method="_on_Player_collided"]
-[connection signal="damage" from="Player" to="CanvasLayer/HUD" method="set_health"]

@@ -15,6 +15,14 @@ var max_properties = {'tile': {'strength': max_tile_strength, 'solid': false,
 var tile_properties = {}
 var object_properties = {}
 
+onready var player_data = get_node("/root/PlayerData")
+
+
+func _ready():
+	player_data.connect('update_health', $CanvasLayer/HUD, 'set_health')
+	player_data.connect('update_fuel', $CanvasLayer/HUD, 'set_fuel')
+	player_data.connect('bleed', $CanvasLayer/HUD, 'bleed')
+
 
 func get_properties(type):
 	var properties
