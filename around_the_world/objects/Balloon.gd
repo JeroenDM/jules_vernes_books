@@ -21,12 +21,10 @@ func _ready() -> void:
 	emit_signal("food_changed", floor(max_food / 2))
 	
 func set_max_food(new_value : int) -> void:
-	max_food = max(1, new_value)
-	emit_signal("max_food_changed", max_food)
+	emit_signal("max_food_changed", new_value)
 
 func set_max_health(new_value : int) -> void:
-	max_health = max(1, new_value)
-	emit_signal("max_health_changed", max_health)
+	emit_signal("max_health_changed", new_value)
 
 func set_food(new_value : int) -> void:
 	_food = clamp(new_value, 0, max_food)
@@ -36,8 +34,8 @@ func set_food(new_value : int) -> void:
 		emit_signal("all_food_gone")
 
 func set_health(new_value : int) -> void:
-	_health = clamp(new_value, 0, max_health)
-	emit_signal("health_changed", _health)
+	_health = new_value
+	emit_signal("health_changed", new_value)
 
 func get_input() -> void:
 	if Input.is_action_pressed("ui_up"):
