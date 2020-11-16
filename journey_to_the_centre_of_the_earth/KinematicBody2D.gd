@@ -7,6 +7,7 @@ const ACCELERATION = 50
 const JUMP_HEIGHT = -650
 
 var motion = Vector2()
+var health = 10
 signal collided
 
 func _physics_process(delta):
@@ -40,6 +41,10 @@ func _physics_process(delta):
 			motion.x = lerp(motion.x, 0, 0.05)
 	
 	motion = move_and_slide(motion, UP)
+	if motion.length() > 3:
+		var damage = max(motion.length()-3,0)
+		health -= damage
+		print(health)
 	
 	# drill
 	if Input.is_action_pressed("ui_accept"):
