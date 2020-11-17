@@ -10,8 +10,6 @@ var motion = Vector2()
 var health = 10
 signal collided
 
-onready var player_data = get_node("/root/PlayerData")
-
 func _physics_process(delta):
 	motion.y += GRAVITY
 	var friction = false
@@ -46,7 +44,7 @@ func _physics_process(delta):
 	motion = move_and_slide(motion, UP)
 	if is_on_floor() and impact > 9:
 		var damage = round(max(impact-9,0))
-		player_data.remove_health(damage)
+		PlayerData.health -= damage
 	
 	# drill
 	if Input.is_action_pressed("ui_accept"):

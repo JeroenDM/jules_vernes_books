@@ -1,45 +1,38 @@
 extends Control
 
 export(bool) var enable_food_bar = true
-onready var _food_bar : ProgressBar = $FoodBar
-onready var _health_bar : ProgressBar = $HealthBar
+onready var food_bar : ProgressBar = $FoodBar
+onready var health_bar : ProgressBar = $HealthBar
 
 
 func _ready():
 	$FoodBar.visible = enable_food_bar
 	$TextBox.visible = false
-
-func set_food(value : int) -> void:
-	if _food_bar == null:
-		print("This node should be at the top of the Scene tree")
-	else:
-		_food_bar.set_value(clamp(value, 0, _food_bar.get_max()))
 	
-func set_max_food(value : int) -> void:
-	if _food_bar == null:
-		print("This node should be at the top of the Scene tree")
-	else:
-		_food_bar.set_max(max(1, value))
-
-func set_health(value : int) -> void:
-	if _health_bar == null:
-		print("This node should be at the top of the Scene tree")
-	else:
-		_health_bar.set_value(clamp(value, 0, _health_bar.get_max()))
+	PlayerData.connect("health_changed", self, "update_health")
+	PlayerData.connect("fuel_changed", self, "update_fuel")
+	PlayerData.connect("bleed", self, "bleed")
 	
-func set_max_health(value : int) -> void:
-	if _health_bar == null:
-		print("This node should be at the top of the Scene tree")
-	else:
-		_health_bar.set_max(max(1, value))
+	health_bar.set_max(PlayerData.max_health)
+	food_bar.set_max(PlayerData.max_fuel)
+
+
+func update_fuel(value : float) -> void:
+	food_bar.set_value(PlayerData.fuel)
+
+
+func update_health(value : int) -> void:
+	health_bar.set_value(PlayerData.health)
 	
 func bleed() -> void:
 	$Panel.visible = true
 	$BleedTimer.start()
-	
+
+
 func stop_bleeding() -> void:
 	$Panel.visible = false
-		
+
+
 func show_text(text, time = 3):
 	$TextTime.start(time)
 	$TextBox/Label.text = text
