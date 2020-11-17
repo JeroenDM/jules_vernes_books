@@ -58,10 +58,6 @@ position = Vector2( 2513.93, 719.915 )
 
 [node name="Clouds" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1827.88, 318.889 )
-[connection signal="food_changed" from="Balloon" to="overlay/HUD" method="set_food"]
-[connection signal="health_changed" from="Balloon" to="overlay/HUD" method="set_health"]
-[connection signal="max_food_changed" from="Balloon" to="overlay/HUD" method="set_max_food"]
-[connection signal="max_health_changed" from="Balloon" to="overlay/HUD" method="set_max_health"]
 
 [editable path="overlay/HUD"]
 
