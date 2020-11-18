@@ -5,12 +5,13 @@ var max_properties = {'tile': {'strength': max_tile_strength, 'solid': false,
 							   'message': ''}, 
 					  -1: {'strength': 0, 'solid': false, 'message': ''},
 					  0: {'strength': 1, 'solid': true, 'message': ''},
-					  1: {'strength': 2, 'solid': false, 'message': 'You have collected a ladder'},
-					  2: {'strength': 3, 'solid': false, 'message': 'You have collected food'},
-					  3: {'strength': 3, 'solid': false, 'message': 'You have collected explosives'},
-					  4: {'strength': 3, 'solid': false, 'message': 'You have collected a platform'},
-					  5: {'strength': 3, 'solid': false, 'message': 'You have collected a map'},
-					  6: {'strength': 3, 'solid': false, 'message': 'You have collected something else entirely'},
+					  1: {'strength': 2, 'solid': false, 'message': 'You have collected a ladder', 'health': 0},
+					  2: {'strength': 3, 'solid': false, 'message': 'You have collected food', 'health': 0},
+					  3: {'strength': 3, 'solid': false, 'message': 'You have collected explosives', 'health': 0},
+					  4: {'strength': 3, 'solid': false, 'message': 'You have collected a platform', 'health': 0},
+					  5: {'strength': 3, 'solid': false, 'message': 'You have collected a map', 'health': 0},
+					  6: {'strength': 3, 'solid': false, 'message': 'You have collected something else entirely', 'health': 0},
+					  7: {'strength': 0, 'solid': false, 'message': 'You have collected health', 'health': 10},
 					 }
 var tile_properties = {}
 var object_properties = {}
@@ -100,6 +101,8 @@ func _on_Player_interact(collision, time):
 		reduce_strength(type, tile_pos, time)
 		
 		var strength = get_strength(type, tile_pos)
+		var health = get_prop(type, 'health', tile_pos)
+		PlayerData.health += health
 		var solid = get_prop(type, 'solid', tile_pos)
 		if strength < max_tile_strength and !solid:
 			if strength == 0:
