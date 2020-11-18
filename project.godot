@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Jules Verne's books"
-run/main_scene="res://StartMenu.tscn"
+run/main_scene="res://UI/StartMenu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
