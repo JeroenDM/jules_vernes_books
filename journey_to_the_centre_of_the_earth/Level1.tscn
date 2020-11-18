@@ -112,10 +112,10 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 [sub_resource type="ConvexPolygonShape2D" id=8]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 
-[sub_resource type="ConvexPolygonShape2D" id=10]
+[sub_resource type="ConvexPolygonShape2D" id=9]
 points = PoolVector2Array( 61.6309, 64, 2.79124, 63.9566, 2.79124, 2.55867, 61.8635, 2.55867 )
 
-[sub_resource type="TileSet" id=9]
+[sub_resource type="TileSet" id=10]
 0/name = "black.png 0"
 0/texture = ExtResource( 11 )
 0/tex_offset = Vector2( 0, 0 )
@@ -273,14 +273,14 @@ points = PoolVector2Array( 61.6309, 64, 2.79124, 63.9566, 2.79124, 2.55867, 61.8
 7/navigation_offset = Vector2( 0, 0 )
 7/shape_offset = Vector2( 0, 0 )
 7/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-7/shape = SubResource( 10 )
+7/shape = SubResource( 9 )
 7/shape_one_way = false
 7/shape_one_way_margin = 1.0
 7/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 10 ),
+"shape": SubResource( 9 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 7/z_index = 0
@@ -305,7 +305,7 @@ format = 1
 tile_data = PoolIntArray( 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0 )
 
 [node name="Objects" type="TileMap" parent="."]
-tile_set = SubResource( 9 )
+tile_set = SubResource( 10 )
 format = 1
 tile_data = PoolIntArray( 262127, 7, 0 )
 
