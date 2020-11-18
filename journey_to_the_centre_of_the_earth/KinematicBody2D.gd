@@ -61,6 +61,5 @@ func _physics_process(delta):
 			var collision = get_slide_collision(i)
 			if collision:
 				if Functions.is_parallel(collision.normal, -last_direction):
-					print('Success')
 					emit_signal('interact', collision, delta)
 		
