@@ -88,14 +88,14 @@ func _on_Player_collided(collision, time):
 				
 				# spawn other tile //TODO//
 				var object = randi() % 6
-				$HiddenObjects.set_cellv(tile_pos, object)
+				$Objects.set_cellv(tile_pos, object)
 		elif solid:
 			$CanvasLayer/HUD.show_text('This rock is too hard!', 2)
-	elif target.name == 'HiddenObjects':
+	elif target.name == 'Objects':
 		var tile_pos = $Ground.world_to_map($Player.position)
 		
 		tile_pos -= collision.normal
-		var type = $HiddenObjects.get_cellv(tile_pos)
+		var type = $Objects.get_cellv(tile_pos)
 		
 		reduce_strength(type, tile_pos, time)
 		
@@ -104,7 +104,7 @@ func _on_Player_collided(collision, time):
 		if strength < max_tile_strength and !solid:
 			if strength == 0:
 				# remove ground tile
-				$HiddenObjects.set_cellv(tile_pos, -1)
+				$Objects.set_cellv(tile_pos, -1)
 				$CanvasLayer/HUD.show_text(get_prop(type, 'message', tile_pos), 2)
 		elif solid:
 			$CanvasLayer/HUD.show_text('This rock is too hard!', 2)
