@@ -22,6 +22,7 @@ config/icon="res://icon.png"
 [autoload]
 
 PlayerData="*res://PlayerData.tscn"
+Functions="*res://Functions.tscn"
 
 [input]
 

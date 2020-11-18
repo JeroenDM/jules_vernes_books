@@ -16,10 +16,10 @@ var fuel := max_fuel setget set_fuel
 func set_health(value : float) -> void:
 	if value < health:
 		emit_signal('bleed')
-	health = clamp(0, value, max_health)
+	health = clamp(value, 0, max_health)
 	emit_signal('health_changed', health)
 
 
 func set_fuel(value: float) -> void:
-	fuel = clamp(0, value, max_fuel)
+	fuel = clamp(value, 0, max_fuel)
 	emit_signal('fuel_changed', health)

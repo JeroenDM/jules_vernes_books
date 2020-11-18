@@ -2,15 +2,16 @@ extends Node2D
 
 export(int) var max_tile_strength = 1 # seconds
 var max_properties = {'tile': {'strength': max_tile_strength, 'solid': false,
-							   'message': ''}, 
-					  -1: {'strength': 0, 'solid': false, 'message': ''},
-					  0: {'strength': 1, 'solid': true, 'message': ''},
-					  1: {'strength': 2, 'solid': false, 'message': 'You have collected a ladder'},
-					  2: {'strength': 3, 'solid': false, 'message': 'You have collected food'},
-					  3: {'strength': 3, 'solid': false, 'message': 'You have collected explosives'},
-					  4: {'strength': 3, 'solid': false, 'message': 'You have collected a platform'},
-					  5: {'strength': 3, 'solid': false, 'message': 'You have collected a map'},
-					  6: {'strength': 3, 'solid': false, 'message': 'You have collected something else entirely'},
+							   'message': '', 'health': 0}, 
+					  -1: {'strength': 0, 'solid': false, 'message': '', 'health': 0},
+					  0: {'strength': 1, 'solid': true, 'message': '', 'health': 0},
+					  1: {'strength': 2, 'solid': false, 'message': 'You have collected a ladder', 'health': 0},
+					  2: {'strength': 3, 'solid': false, 'message': 'You have collected food', 'health': 0},
+					  3: {'strength': 3, 'solid': false, 'message': 'You have collected explosives', 'health': 0},
+					  4: {'strength': 3, 'solid': false, 'message': 'You have collected a platform', 'health': 0},
+					  5: {'strength': 3, 'solid': false, 'message': 'You have collected a map', 'health': 0},
+					  6: {'strength': 3, 'solid': false, 'message': 'You have collected something else entirely', 'health': 0},
+					  7: {'strength': 0, 'solid': false, 'message': 'You have collected health', 'health': 10},
 					 }
 var tile_properties = {}
 var object_properties = {}
@@ -64,8 +65,8 @@ func set_strength(type, pos, value):
 	
 func reduce_strength(type, pos, value):
 	reduce_prop(type, 'strength', pos, value)
-
-func _on_Player_collided(collision, time):
+	
+func _on_Player_interact(collision, time):
 	var target = collision.collider
 	if target.name == 'Ground':
 		var tile_pos = target.world_to_map($Player.position)
@@ -88,23 +89,26 @@ func _on_Player_collided(collision, time):
 				
 				# spawn other tile //TODO//
 				var object = randi() % 6
-				$HiddenObjects.set_cellv(tile_pos, object)
+				$Objects.set_cellv(tile_pos, object)
 		elif solid:
 			$CanvasLayer/HUD.show_text('This rock is too hard!', 2)
-	elif target.name == 'HiddenObjects':
+	elif target.name == 'Objects':
 		var tile_pos = $Ground.world_to_map($Player.position)
 		
 		tile_pos -= collision.normal
-		var type = $HiddenObjects.get_cellv(tile_pos)
+		tile_pos = Functions.round_vector(tile_pos)
+		var type = $Objects.get_cellv(tile_pos)
 		
 		reduce_strength(type, tile_pos, time)
 		
 		var strength = get_strength(type, tile_pos)
+		var health = get_prop(type, 'health', tile_pos)
+		PlayerData.health += health
 		var solid = get_prop(type, 'solid', tile_pos)
 		if strength < max_tile_strength and !solid:
 			if strength == 0:
 				# remove ground tile
-				$HiddenObjects.set_cellv(tile_pos, -1)
+				$Objects.set_cellv(tile_pos, -1)
 				$CanvasLayer/HUD.show_text(get_prop(type, 'message', tile_pos), 2)
 		elif solid:
 			$CanvasLayer/HUD.show_text('This rock is too hard!', 2)
