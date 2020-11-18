@@ -96,6 +96,7 @@ func _on_Player_interact(collision, time):
 		var tile_pos = $Ground.world_to_map($Player.position)
 		
 		tile_pos -= collision.normal
+		tile_pos = Functions.round_vector(tile_pos)
 		var type = $Objects.get_cellv(tile_pos)
 		
 		reduce_strength(type, tile_pos, time)
