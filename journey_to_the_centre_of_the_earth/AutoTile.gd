@@ -2,9 +2,9 @@ extends Node2D
 
 export(int) var max_tile_strength = 1 # seconds
 var max_properties = {'tile': {'strength': max_tile_strength, 'solid': false,
-							   'message': ''}, 
-					  -1: {'strength': 0, 'solid': false, 'message': ''},
-					  0: {'strength': 1, 'solid': true, 'message': ''},
+							   'message': '', 'health': 0}, 
+					  -1: {'strength': 0, 'solid': false, 'message': '', 'health': 0},
+					  0: {'strength': 1, 'solid': true, 'message': '', 'health': 0},
 					  1: {'strength': 2, 'solid': false, 'message': 'You have collected a ladder', 'health': 0},
 					  2: {'strength': 3, 'solid': false, 'message': 'You have collected food', 'health': 0},
 					  3: {'strength': 3, 'solid': false, 'message': 'You have collected explosives', 'health': 0},
