@@ -8,7 +8,7 @@ const JUMP_HEIGHT = -650
 
 var motion = Vector2()
 var health = 10
-signal collided
+signal interact
 
 func _physics_process(delta):
 	motion.y += GRAVITY
@@ -52,5 +52,5 @@ func _physics_process(delta):
 		for i in get_slide_count():
 			var collision = get_slide_collision(i)
 			if collision:
-				emit_signal('collided', collision, delta)
+				emit_signal('interact', collision, delta)
 		

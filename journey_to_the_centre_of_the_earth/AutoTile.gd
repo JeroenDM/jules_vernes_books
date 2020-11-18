@@ -64,8 +64,8 @@ func set_strength(type, pos, value):
 	
 func reduce_strength(type, pos, value):
 	reduce_prop(type, 'strength', pos, value)
-
-func _on_Player_collided(collision, time):
+	
+func _on_Player_interact(collision, time):
 	var target = collision.collider
 	if target.name == 'Ground':
 		var tile_pos = target.world_to_map($Player.position)
