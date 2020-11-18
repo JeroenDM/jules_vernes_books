@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://UI/HUD.gd" type="Script" id=1]
+[ext_resource path="res://UI/theme.tres" type="Theme" id=2]
+[ext_resource path="res://UI/title_font.tres" type="DynamicFont" id=3]
+[ext_resource path="res://UI/StartLevelButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://UI/ExitButton.tscn" type="PackedScene" id=7]
 
-[sub_resource type="StyleBoxFlat" id=1]
+[sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.301961, 0.65098, 1, 1 )
 border_width_left = 2
 border_width_top = 2
@@ -14,7 +18,7 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 0.278431, 0.231373, 0.470588, 1 )
 border_width_left = 2
 border_width_top = 2
@@ -26,7 +30,63 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
+[sub_resource type="Shader" id=6]
+code = "shader_type canvas_item;
+
+// Gonkee's fog shader for Godot 3 - full tutorial https://youtu.be/QEaTsz_0o44
+// If you use this shader, I would prefer it if you gave credit to me and my channel
+
+uniform vec3 color = vec3(0.1, 0.1, 0.1);
+uniform int OCTAVES = 4;
+
+float rand(vec2 coord){
+	return fract(sin(dot(coord, vec2(56, 78)) * 1000.0) * 1000.0);
+}
+
+float noise(vec2 coord){
+	vec2 i = floor(coord);
+	vec2 f = fract(coord);
+
+	// 4 corners of a rectangle surrounding our point
+	float a = rand(i);
+	float b = rand(i + vec2(1.0, 0.0));
+	float c = rand(i + vec2(0.0, 1.0));
+	float d = rand(i + vec2(1.0, 1.0));
+
+	vec2 cubic = f * f * (3.0 - 2.0 * f);
+
+	return mix(a, b, cubic.x) + (c - a) * cubic.y * (1.0 - cubic.x) + (d - b) * cubic.x * cubic.y;
+}
+
+float fbm(vec2 coord){
+	float value = 0.0;
+	float scale = 0.5;
+
+	for(int i = 0; i < OCTAVES; i++){
+		value += noise(coord) * scale;
+		coord *= 2.0;
+		scale *= 0.5;
+	}
+	return value;
+}
+
+void fragment() {
+	vec2 coord = UV * 20.0;
+
+	vec2 motion = vec2( fbm(coord + vec2(TIME * -0.5, TIME * 0.5)) );
+
+	float final = fbm(coord + motion);
+
+	COLOR = vec4(color, final * 0.5);
+}"
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = SubResource( 6 )
+shader_param/color = Vector3( 0.1, 0.1, 0.1 )
+shader_param/OCTAVES = 4
+
 [node name="HUD" type="Control"]
+pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -2.37842
@@ -41,8 +101,8 @@ margin_left = 2.24492
 margin_top = 32.5513
 margin_right = 146.245
 margin_bottom = 48.5513
-custom_styles/fg = SubResource( 1 )
-custom_styles/bg = SubResource( 2 )
+custom_styles/fg = SubResource( 3 )
+custom_styles/bg = SubResource( 4 )
 max_value = 10.0
 value = 10.0
 percent_visible = false
@@ -66,8 +126,8 @@ margin_left = 2.24492
 margin_top = 82.5008
 margin_right = 146.245
 margin_bottom = 98.5008
-custom_styles/fg = SubResource( 1 )
-custom_styles/bg = SubResource( 2 )
+custom_styles/fg = SubResource( 3 )
+custom_styles/bg = SubResource( 4 )
 value = 50.0
 percent_visible = false
 __meta__ = {
@@ -121,5 +181,55 @@ __meta__ = {
 }
 
 [node name="BleedTimer" type="Timer" parent="."]
+
+[node name="PauseOverlay" type="ColorRect" parent="."]
+visible = false
+material = SubResource( 5 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="PauseOverlay"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -295.0
+margin_top = 27.0
+margin_right = 295.0
+margin_bottom = 101.0
+theme = ExtResource( 2 )
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Game paused"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseOverlay"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -88.0
+margin_top = 149.0
+margin_right = 100.0
+margin_bottom = 260.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartLevel" parent="PauseOverlay/VBoxContainer" instance=ExtResource( 5 )]
+margin_right = 188.0
+margin_bottom = 53.0
+size_flags_horizontal = 1
+text = "Quit to menu"
+next_scene_path = "res://UI/StartMenu.tscn"
+
+[node name="ExitButton" parent="PauseOverlay/VBoxContainer" instance=ExtResource( 7 )]
+margin_top = 57.0
+margin_right = 188.0
+margin_bottom = 111.0
+size_flags_vertical = 3
 [connection signal="timeout" from="TextTime" to="." method="_on_TextTime_timeout"]
 [connection signal="timeout" from="BleedTimer" to="." method="stop_bleeding"]
