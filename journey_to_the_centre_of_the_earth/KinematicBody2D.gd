@@ -56,11 +56,15 @@ func _physics_process(delta):
 	
 	# interact
 	if Input.is_action_pressed("ui_accept"):
+		var can_interact = true
 		for i in get_slide_count():
 			var collision = get_slide_collision(i)
 			if collision:
 				if collision.collider.name == 'Ground':
-					$Sprite.play("Drill")
-				if Functions.is_parallel(collision.normal, -last_direction):
+					if !PlayerData.can_drill:
+						can_interact = false
+					else:
+						$Sprite.play("Drill")
+				if Functions.is_parallel(collision.normal, -last_direction) and can_interact:
 					emit_signal('interact', collision, delta)
 		

@@ -11,6 +11,7 @@ signal bleed # move this to the player ?
 
 var health := max_health setget set_health
 var fuel := max_fuel setget set_fuel
+var can_drill := false setget set_drill
 
 
 func set_health(value : float) -> void:
@@ -23,3 +24,6 @@ func set_health(value : float) -> void:
 func set_fuel(value: float) -> void:
 	fuel = clamp(value, 0, max_fuel)
 	emit_signal('fuel_changed', health)
+
+func set_drill(value: bool) -> void:
+	can_drill = value
