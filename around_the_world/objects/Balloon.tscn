@@ -18,11 +18,14 @@ extents = Vector2( 25.2955, 6.27935 )
 
 [node name="Balloon" type="RigidBody2D"]
 collision_mask = 2
+mass = 1.5
 physics_material_override = SubResource( 1 )
 contacts_reported = 1
 contact_monitor = true
 angular_damp = 100.0
 script = ExtResource( 1 )
+engine_thrust = 400.0
+propeller_thrust = 400.0
 
 [node name="basket" type="CollisionShape2D" parent="."]
 position = Vector2( 0.836155, 25.6209 )
@@ -38,7 +41,7 @@ current = true
 zoom = Vector2( 1.5, 1.5 )
 limit_left = 0
 limit_top = -500
-limit_right = 4000
+limit_right = 8196
 limit_bottom = 760
 
 [node name="circle" type="CollisionShape2D" parent="."]

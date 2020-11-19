@@ -1,49 +1,61 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
-
-[ext_resource path="res://around_the_world/objects/Clouds.gd" type="Script" id=1]
-[ext_resource path="res://assets/generic/clouds.png" type="Texture" id=2]
+[ext_resource path="res://assets/generic/mountains.png" type="Texture" id=1]
 [ext_resource path="res://assets/generic/background_1.png" type="Texture" id=3]
 [ext_resource path="res://around_the_world/objects/Clouds.tscn" type="PackedScene" id=4]
 
-
-
 [node name="CloudsBackground" type="Node2D"]
 
-[node name="Image" type="TextureRect" parent="."]
+[node name="Gradient" type="TextureRect" parent="."]
 self_modulate = Color( 1, 1, 1, 0.74902 )
-margin_top = -265.0
-margin_right = 5198.0
-margin_bottom = 769.0
+margin_top = -603.0
+margin_right = 8196.0
+margin_bottom = 776.0
 texture = ExtResource( 3 )
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Mountains" type="TextureRect" parent="."]
+margin_top = 547.973
+margin_right = 8196.0
+margin_bottom = 759.973
+texture = ExtResource( 1 )
 stretch_mode = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_left = -4.0
-margin_top = -1335.0
-margin_right = 5198.0
-margin_bottom = -240.0
-color = Color( 0.933333, 0.741176, 0.513726, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Clouds" parent="." instance=ExtResource( 4 )]
-position = Vector2( 670.987, -30.3825 )
+position = Vector2( 594.878, 245.514 )
 
 [node name="Clouds2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 3411.88, 226.889 )
+position = Vector2( 3335.77, 502.785 )
 
 [node name="Clouds3" parent="." instance=ExtResource( 4 )]
-position = Vector2( 939.877, 378.889 )
+position = Vector2( 1277.3, -196.253 )
 
 [node name="Clouds4" parent="." instance=ExtResource( 4 )]
-position = Vector2( 2543.88, 16.6175 )
+position = Vector2( 2467.77, 292.514 )
 offset = Vector2( -172, -9.72812 )
 
 [node name="Clouds5" parent="." instance=ExtResource( 4 )]
-position = Vector2( 3455.88, -75.3825 )
+position = Vector2( 3379.77, 200.514 )
+offset = Vector2( -172, -9.72812 )
+
+[node name="Clouds6" parent="." instance=ExtResource( 4 )]
+position = Vector2( 4759.25, 362.246 )
+offset = Vector2( -172, -9.72812 )
+
+[node name="Clouds7" parent="." instance=ExtResource( 4 )]
+position = Vector2( 5824.78, 276.623 )
+offset = Vector2( -172, -9.72812 )
+
+[node name="Clouds8" parent="." instance=ExtResource( 4 )]
+position = Vector2( 4693.28, -214.322 )
+offset = Vector2( -172, -9.72812 )
+
+[node name="Clouds9" parent="." instance=ExtResource( 4 )]
+position = Vector2( 7043.39, 47.2628 )
 offset = Vector2( -172, -9.72812 )
