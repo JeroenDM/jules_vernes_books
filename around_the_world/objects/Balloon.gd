@@ -10,6 +10,24 @@ export (float) var impact_threshold := 0.2
 var thrust := Vector2.ZERO
 var direction := 0
 
+onready var message_timer : Timer = $MessageTimer
+onready var fuel_empty_message : Label = $OutOfFuelMessage
+
+func _ready() -> void:
+	PlayerData.connect("fuel_empty", self, "die")
+
+func die() -> void:
+	print("Out of fuel")
+	fuel_empty_message.visible = true
+	message_timer.start()
+	engine_thrust = 0.0
+	propeller_thrust = 0.0
+
+func restart() -> void:
+	fuel_empty_message.visible = false
+	PlayerData.fuel = PlayerData.max_fuel
+	PlayerData.health = PlayerData.max_health
+	get_tree().reload_current_scene()
 
 func get_input() -> void:
 	if Input.is_action_pressed("ui_up"):
