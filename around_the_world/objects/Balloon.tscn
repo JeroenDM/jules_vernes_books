@@ -37,7 +37,8 @@ texture = ExtResource( 2 )
 current = true
 zoom = Vector2( 1.5, 1.5 )
 limit_left = 0
-limit_top = -270
+limit_top = -500
+limit_right = 4000
 limit_bottom = 760
 
 [node name="circle" type="CollisionShape2D" parent="."]

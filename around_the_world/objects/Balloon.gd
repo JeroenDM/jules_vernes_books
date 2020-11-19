@@ -61,5 +61,5 @@ func _integrate_forces(state: Physics2DDirectBodyState) -> void:
 func _on_food_detector_body_entered(body: Node) -> void:
 	$food_detector/CollisionShape2D.disabled = true
 	body.queue_free()
-	PlayerData.fuel += 1
+	PlayerData.fuel += 10
 	$food_detector/CollisionShape2D.disabled = false
