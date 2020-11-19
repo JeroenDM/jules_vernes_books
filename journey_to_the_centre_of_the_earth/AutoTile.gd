@@ -108,6 +108,9 @@ func _on_Player_interact(collision, time):
 		reduce_strength(type, tile_pos, time)
 		
 		var strength = get_strength(type, tile_pos)
+		var add_drill = get_prop(type, 'add_drill', tile_pos)
+		if add_drill:
+			PlayerData.can_drill = true
 		var health = get_prop(type, 'health', tile_pos)
 		PlayerData.health += health
 		var solid = get_prop(type, 'solid', tile_pos)
