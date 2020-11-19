@@ -293,6 +293,16 @@ script = ExtResource( 4 )
 [node name="HUD" parent="CanvasLayer" instance=ExtResource( 10 )]
 enable_food_bar = false
 
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -832.0
+margin_top = 64.0
+margin_right = 5056.0
+margin_bottom = 4544.0
+color = Color( 0.65098, 0.32549, 0.113725, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Ground" type="TileMap" parent="."]
 tile_set = ExtResource( 3 )
 cell_quadrant_size = 32

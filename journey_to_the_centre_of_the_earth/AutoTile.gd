@@ -87,9 +87,9 @@ func _on_Player_interact(collision, time):
 				target.update_bitmask_area(tile_pos)
 				rm_prop('tile', tile_pos)
 				
-				# spawn other tile //TODO//
-				var object = randi() % 6
-				$Objects.set_cellv(tile_pos, object)
+				# spawn other tile
+#				var object = randi() % 6
+#				$Objects.set_cellv(tile_pos, object)
 		elif solid:
 			$CanvasLayer/HUD.show_text('This rock is too hard!', 2)
 	elif target.name == 'Objects':
