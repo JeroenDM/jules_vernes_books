@@ -13,8 +13,6 @@
 [ext_resource path="res://assets/journey_to_the_center/Tiles/Sky.png" type="Texture" id=11]
 [ext_resource path="res://assets/journey_to_the_center/Player/Drill1.png" type="Texture" id=12]
 
-
-
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 5 ) ],
@@ -27,20 +25,20 @@ animations = [ {
 "name": "Drill",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ ExtResource( 6 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 2 ) ],
 "loop": true,
-"name": "Idle",
-"speed": 5.0
+"name": "Run",
+"speed": 10.0
 }, {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "Fall",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 2 ) ],
+"frames": [ ExtResource( 3 ) ],
 "loop": true,
-"name": "Run",
-"speed": 10.0
+"name": "Idle",
+"speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
