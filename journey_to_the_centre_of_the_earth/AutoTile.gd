@@ -1,17 +1,19 @@
 extends Node2D
 
 export(int) var max_tile_strength = 1 # seconds
-var max_properties = {'tile': {'strength': max_tile_strength, 'solid': false,
-							   'message': '', 'health': 0}, 
-					  -1: {'strength': 0, 'solid': false, 'message': '', 'health': 0},
-					  0: {'strength': 1, 'solid': true, 'message': '', 'health': 0},
-					  1: {'strength': 2, 'solid': false, 'message': 'You have collected a ladder', 'health': 0},
-					  2: {'strength': 3, 'solid': false, 'message': 'You have collected food', 'health': 0},
-					  3: {'strength': 3, 'solid': false, 'message': 'You have collected explosives', 'health': 0},
-					  4: {'strength': 3, 'solid': false, 'message': 'You have collected a platform', 'health': 0},
-					  5: {'strength': 3, 'solid': false, 'message': 'You have collected a map', 'health': 0},
-					  6: {'strength': 3, 'solid': false, 'message': 'You have collected something else entirely', 'health': 0},
-					  7: {'strength': 0, 'solid': false, 'message': 'You have collected health', 'health': 10},
+var max_properties = {'default': {'strength': 0, 'solid': false,
+								  'message': '', 'health': 0, 'add_drill': false},
+					  'tile': {'strength': max_tile_strength}, 
+					  -1: {},
+					  0: {'solid': true},
+					  1: {'message': 'You have collected a ladder'},
+					  2: {'message': 'You have collected food'},
+					  3: {'message': 'You have collected explosives'},
+					  4: {'message': 'You have collected a platform'},
+					  5: {'message': 'You have collected a map'},
+					  6: {'message': 'You have collected something else entirely'},
+					  7: {'message': 'You have collected health', 'health': 10},
+					  8: {'message': 'You have collected health', 'add_drill': true},
 					 }
 var tile_properties = {}
 var object_properties = {}
@@ -40,7 +42,11 @@ func get_prop(type, prop, pos):
 		properties[pos] = {}
 		
 	if !properties[pos].has(prop):
-		properties[pos][prop] = max_properties[type][prop]
+		var prop_tmp = max_properties['default'][prop]
+		if max_properties[type].has(prop):
+			prop_tmp = max_properties[type][prop]
+		
+		properties[pos][prop] = prop_tmp
 		
 	return properties[pos][prop]
 
