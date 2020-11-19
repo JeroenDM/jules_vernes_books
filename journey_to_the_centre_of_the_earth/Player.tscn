@@ -1,17 +1,19 @@
 [gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://journey_to_the_centre_of_the_earth/KinematicBody2D.gd" type="Script" id=1]
-[ext_resource path="res://journey_to_the_centre_of_the_earth/Sprites/Player/Run7.png" type="Texture" id=2]
-[ext_resource path="res://journey_to_the_centre_of_the_earth/Sprites/Player/Idle0.png" type="Texture" id=3]
-[ext_resource path="res://journey_to_the_centre_of_the_earth/Sprites/Player/Run1.png" type="Texture" id=4]
-[ext_resource path="res://journey_to_the_centre_of_the_earth/Sprites/Player/Jump1.png" type="Texture" id=5]
-[ext_resource path="res://journey_to_the_centre_of_the_earth/Sprites/Player/Run0.png" type="Texture" id=6]
-[ext_resource path="res://journey_to_the_centre_of_the_earth/Sprites/Player/Jump3.png" type="Texture" id=7]
-[ext_resource path="res://journey_to_the_centre_of_the_earth/Sprites/Player/Run2.png" type="Texture" id=8]
-[ext_resource path="res://journey_to_the_centre_of_the_earth/Sprites/Player/Run4.png" type="Texture" id=9]
-[ext_resource path="res://journey_to_the_centre_of_the_earth/Sprites/Player/Run3.png" type="Texture" id=10]
-[ext_resource path="res://journey_to_the_centre_of_the_earth/Sprites/Tiles/Sky.png" type="Texture" id=11]
-[ext_resource path="res://journey_to_the_centre_of_the_earth/Sprites/Player/Drill1.png" type="Texture" id=12]
+[ext_resource path="res://assets/journey_to_the_center/Player/Run7.png" type="Texture" id=2]
+[ext_resource path="res://assets/journey_to_the_center/Player/Idle0.png" type="Texture" id=3]
+[ext_resource path="res://assets/journey_to_the_center/Player/Run1.png" type="Texture" id=4]
+[ext_resource path="res://assets/journey_to_the_center/Player/Jump1.png" type="Texture" id=5]
+[ext_resource path="res://assets/journey_to_the_center/Player/Run0.png" type="Texture" id=6]
+[ext_resource path="res://assets/journey_to_the_center/Player/Jump3.png" type="Texture" id=7]
+[ext_resource path="res://assets/journey_to_the_center/Player/Run2.png" type="Texture" id=8]
+[ext_resource path="res://assets/journey_to_the_center/Player/Run4.png" type="Texture" id=9]
+[ext_resource path="res://assets/journey_to_the_center/Player/Run3.png" type="Texture" id=10]
+[ext_resource path="res://assets/journey_to_the_center/Tiles/Sky.png" type="Texture" id=11]
+[ext_resource path="res://assets/journey_to_the_center/Player/Drill1.png" type="Texture" id=12]
+
+
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
