@@ -17,6 +17,7 @@ func _ready():
 	PlayerData.connect("health_changed", self, "update_health")
 	PlayerData.connect("fuel_changed", self, "update_fuel")
 	PlayerData.connect("bleed", self, "bleed")
+	LevelData.connect("time_changed", self, "update_time")
 	
 	health_bar.set_max(PlayerData.max_health)
 	food_bar.set_max(PlayerData.max_fuel)
@@ -43,9 +44,12 @@ func bleed() -> void:
 	$Panel.visible = true
 	$BleedTimer.start()
 
-
 func stop_bleeding() -> void:
 	$Panel.visible = false
+
+
+func update_time():
+	$LevelTimer.text = "Time: %d" % LevelData.time
 
 
 func show_text(text, time = 3):

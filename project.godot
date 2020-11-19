@@ -23,6 +23,7 @@ config/icon="res://icon.png"
 
 PlayerData="*res://PlayerData.tscn"
 Functions="*res://Functions.tscn"
+LevelData="*res://LevelData.tscn"
 
 [input]
 
