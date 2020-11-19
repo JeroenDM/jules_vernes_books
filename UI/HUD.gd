@@ -1,6 +1,7 @@
 extends Control
 
 export(bool) var enable_food_bar = true
+export(bool) var enable_timer = true
 
 # cache sceen tree for efficiency
 onready var scene_tree: = get_tree()
@@ -12,6 +13,7 @@ var paused: = false setget set_paused
 
 func _ready():
 	$FoodBar.visible = enable_food_bar
+	$LevelTimer.visible = enable_timer
 	$TextBox.visible = false
 	
 	PlayerData.connect("health_changed", self, "update_health")
