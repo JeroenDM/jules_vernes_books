@@ -117,7 +117,7 @@ margin_top = -14.5678
 margin_right = 68.0811
 margin_bottom = -0.567795
 custom_colors/font_color = Color( 0.278431, 0.231373, 0.470588, 1 )
-text = "Damage"
+text = "Health"
 __meta__ = {
 "_edit_use_anchors_": false
 }
