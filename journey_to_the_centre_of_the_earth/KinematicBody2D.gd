@@ -5,6 +5,7 @@ const GRAVITY = 30
 const MAX_SPEED = 300
 const ACCELERATION = 50
 const JUMP_HEIGHT = -650
+const IMPACT_STRENGTH = 10
 
 var motion = Vector2()
 var last_direction = Vector2()
@@ -50,8 +51,8 @@ func _physics_process(delta):
 	
 	var impact = motion.y/100
 	motion = move_and_slide(motion, UP)
-	if is_on_floor() and impact > 9:
-		var damage = round(max(impact-9,0))
+	if is_on_floor() and impact > IMPACT_STRENGTH:
+		var damage = round(max(impact-IMPACT_STRENGTH,0))
 		PlayerData.health -= damage
 	
 	# interact
