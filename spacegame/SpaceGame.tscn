@@ -18,6 +18,7 @@ layer = 2
 [node name="HUD" parent="CanvasLayer2" instance=ExtResource( 6 )]
 enable_food_bar = false
 enable_timer = false
+bleed_color = Color( 0.811765, 0.831373, 1, 1 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 279.698, 915.376 )
@@ -25,6 +26,7 @@ current = true
 zoom = Vector2( 8, 8 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color( 0.691406, 0.637538, 0.391617, 1 )
 margin_left = -2870.15
 margin_top = -1584.93
 margin_right = 4285.85
@@ -51,11 +53,19 @@ spin_thrust = 25000.0
 position = Vector2( -372.002, 484.119 )
 
 [node name="Satellite" parent="Sattelites" instance=ExtResource( 3 )]
-position = Vector2( 2218.61, 742.771 )
+position = Vector2( 1561.87, 742.771 )
+linear_velocity = Vector2( -100, 0 )
+
+[node name="Satellite10" parent="Sattelites" instance=ExtResource( 3 )]
+position = Vector2( 2365.14, 742.771 )
 linear_velocity = Vector2( -100, 0 )
 
 [node name="Satellite2" parent="Sattelites" instance=ExtResource( 3 )]
-position = Vector2( -334.349, 347.753 )
+position = Vector2( 55.425, 374.45 )
+linear_velocity = Vector2( 200, 0 )
+
+[node name="Satellite12" parent="Sattelites" instance=ExtResource( 3 )]
+position = Vector2( -453.692, 170.803 )
 linear_velocity = Vector2( 200, 0 )
 
 [node name="Satellite8" parent="Sattelites" instance=ExtResource( 3 )]
@@ -63,18 +73,30 @@ position = Vector2( -424.146, -1412.27 )
 linear_velocity = Vector2( 200, 0 )
 
 [node name="Satellite9" parent="Sattelites" instance=ExtResource( 3 )]
-position = Vector2( -693.538, -738.791 )
+position = Vector2( 128.725, -765.488 )
 linear_velocity = Vector2( 200, 0 )
 
 [node name="Satellite3" parent="Sattelites" instance=ExtResource( 3 )]
 linear_velocity = Vector2( 100, 0 )
 
 [node name="Satellite4" parent="Sattelites" instance=ExtResource( 3 )]
-position = Vector2( 63.5, 1041.93 )
+position = Vector2( 642.575, 1015.23 )
+linear_velocity = Vector2( 100, 0 )
+
+[node name="Satellite13" parent="Sattelites" instance=ExtResource( 3 )]
+position = Vector2( -528.394, 817.243 )
 linear_velocity = Vector2( 100, 0 )
 
 [node name="Satellite5" parent="Sattelites" instance=ExtResource( 3 )]
-position = Vector2( 2281.44, -147.334 )
+position = Vector2( 1768.86, -275.479 )
+linear_velocity = Vector2( -200, 0 )
+
+[node name="Satellite11" parent="Sattelites" instance=ExtResource( 3 )]
+position = Vector2( 2589.1, -94.4594 )
+linear_velocity = Vector2( -200, 0 )
+
+[node name="Satellite15" parent="Sattelites" instance=ExtResource( 3 )]
+position = Vector2( 2142.21, 177.07 )
 linear_velocity = Vector2( -200, 0 )
 
 [node name="Satellite6" parent="Sattelites" instance=ExtResource( 3 )]
@@ -83,6 +105,10 @@ linear_velocity = Vector2( -200, 0 )
 
 [node name="Satellite7" parent="Sattelites" instance=ExtResource( 3 )]
 position = Vector2( 2236.54, -686.116 )
+linear_velocity = Vector2( -200, 0 )
+
+[node name="Satellite14" parent="Sattelites" instance=ExtResource( 3 )]
+position = Vector2( 2971.93, -753.998 )
 linear_velocity = Vector2( -200, 0 )
 
 [node name="moon" type="Sprite" parent="."]
