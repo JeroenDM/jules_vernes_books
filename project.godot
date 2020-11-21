@@ -24,6 +24,7 @@ config/icon="res://icon.png"
 PlayerData="*res://autoload/PlayerData.tscn"
 Functions="*res://autoload/Functions.tscn"
 LevelData="*res://autoload/LevelData.tscn"
+HUDInfo="*res://autoload/HUDInfo.tscn"
 
 [input]
 
