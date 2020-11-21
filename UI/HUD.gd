@@ -33,8 +33,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		toggle_game_menu()
 	
 	if event.is_action_pressed("ui_accept"):
+		print("ui_accept")
 		if $TextBox/Label.get_visible_characters() == ($TextBox/Label.get_total_character_count() + 1):
 			hide_text()
+			$TextTime.stop()
 		else:
 			$TextBox/Label.set_visible_characters($TextBox/Label.get_total_character_count() + 1)
 		
