@@ -21,9 +21,9 @@ config/icon="res://icon.png"
 
 [autoload]
 
-PlayerData="*res://PlayerData.tscn"
-Functions="*res://Functions.tscn"
-LevelData="*res://LevelData.tscn"
+PlayerData="*res://autoload/PlayerData.tscn"
+Functions="*res://autoload/Functions.tscn"
+LevelData="*res://autoload/LevelData.tscn"
 
 [input]
 
@@ -69,7 +69,7 @@ pause={
 [rendering]
 
 quality/2d/use_pixel_snap=true
-environment/default_clear_color=Color( 1, 1, 1, 1 )
+environment/default_clear_color=Color( 0, 0, 0, 1 )
 environment/default_environment="res://default_env.tres"
 
 [world]
