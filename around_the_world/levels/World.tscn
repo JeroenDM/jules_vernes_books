@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://around_the_world/BuildingTiles.tscn" type="PackedScene" id=1]
 [ext_resource path="res://backgrounds/CloudsBackground.tscn" type="PackedScene" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://around_the_world/objects/FoodPack.tscn" type="PackedScene" id=6]
 [ext_resource path="res://UI/HUD.tscn" type="PackedScene" id=7]
 [ext_resource path="res://around_the_world/levels/NextLevelDetector.gd" type="Script" id=8]
-[ext_resource path="res://around_the_world/levels/LevelTimer.gd" type="Script" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 20.614, 539.321 )
@@ -85,11 +84,7 @@ __meta__ = {
 
 [node name="Balloon" parent="." instance=ExtResource( 3 )]
 position = Vector2( 155.414, 418.421 )
-
-[node name="LevelTimer" type="Timer" parent="."]
-script = ExtResource( 9 )
 [connection signal="body_entered" from="NextLevelDetector" to="NextLevelDetector" method="_on_body_entered"]
-[connection signal="timeout" from="LevelTimer" to="LevelTimer" method="_on_LevelTimer_timeout"]
 
 [editable path="overlay/HUD"]
 
