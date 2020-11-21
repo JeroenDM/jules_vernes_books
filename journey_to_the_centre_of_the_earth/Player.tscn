@@ -161,9 +161,9 @@ motion_mirroring = Vector2( 2048, 0 )
 
 [node name="TextureRect" type="TextureRect" parent="Background1/ParallaxLayer/Background2/ParallaxLayer"]
 modulate = Color( 1, 1, 1, 0.623529 )
-margin_left = -584.0
+margin_left = -585.0
 margin_top = -156.0
-margin_right = 4432.0
+margin_right = 4431.0
 margin_bottom = 56.0
 texture = ExtResource( 13 )
 stretch_mode = 2
