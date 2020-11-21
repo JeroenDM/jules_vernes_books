@@ -1,15 +1,23 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://spacegame/SpaceShip.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/spacegame/space_background.png" type="Texture" id=2]
 [ext_resource path="res://spacegame/Satellite.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/spacegame/moon.png" type="Texture" id=4]
 [ext_resource path="res://spacegame/moon.gd" type="Script" id=5]
+[ext_resource path="res://UI/HUD.tscn" type="PackedScene" id=6]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 285.924
 
 [node name="SpaceLevel" type="Node2D"]
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="HUD" parent="CanvasLayer2" instance=ExtResource( 6 )]
+enable_food_bar = false
+enable_timer = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 279.698, 915.376 )
