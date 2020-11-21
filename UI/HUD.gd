@@ -18,6 +18,7 @@ func _ready():
 	$FoodBar.visible = enable_food_bar
 	$LevelTimer.visible = enable_timer
 	$TextBox.visible = false
+	$BleedPanel.modulate = bleed_color
 	
 	PlayerData.connect("health_changed", self, "update_health")
 	PlayerData.connect("fuel_changed", self, "update_fuel")
