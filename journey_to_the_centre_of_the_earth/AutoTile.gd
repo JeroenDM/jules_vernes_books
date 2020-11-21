@@ -19,6 +19,9 @@ var tile_properties = {}
 var object_properties = {}
 
 
+func _ready():
+	PlayerData.set_health(9, false)
+
 func get_properties(type):
 	var properties
 	if str(type) == 'tile':
