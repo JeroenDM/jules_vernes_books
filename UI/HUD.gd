@@ -9,7 +9,8 @@ onready var pause_overlay: ColorRect = $PauseOverlay
 onready var food_bar : ProgressBar = $FoodBar
 onready var health_bar : ProgressBar = $HealthBar
 
-var paused: = false setget set_paused
+var paused := false setget set_paused
+var text_time = 3
 
 func _ready():
 	$FoodBar.visible = enable_food_bar
@@ -28,9 +29,14 @@ func _ready():
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
-		print("input paused: ")
 		toggle_game_pause()
 		toggle_game_menu()
+	
+	if event.is_action_pressed("ui_accept"):
+		if $TextBox/Label.get_visible_characters() == ($TextBox/Label.get_total_character_count() + 1):
+			hide_text()
+		else:
+			$TextBox/Label.set_visible_characters($TextBox/Label.get_total_character_count() + 1)
 		
 func toggle_game_pause() -> void:
 	self.paused = not paused
@@ -61,9 +67,11 @@ func update_time():
 	$LevelTimer.text = "Time: %d" % LevelData.time
 
 func update_message(text, time = 3, pause = false):
-	$TextTime.start(time)
+	text_time = time
 	$TextBox/Label.text = text
+	$TextBox/Label.set_visible_characters(0)
 	$TextBox.visible = true
+	$LetterTime.start(0.03)
 	if pause:
 		set_paused(true)
 
@@ -73,6 +81,13 @@ func show_text(text, time = 3):
 func hide_text():
 	$TextBox.visible = false
 	set_paused(false)
+
+func _on_LetterTime_timeout():
+	if $TextBox/Label.get_visible_characters() == $TextBox/Label.get_total_character_count():
+		$TextTime.start(text_time)
+		$TextBox/Label.set_visible_characters($TextBox/Label.get_visible_characters() + 1)
+	elif $TextBox/Label.get_visible_characters() < $TextBox/Label.get_total_character_count():
+		$TextBox/Label.set_visible_characters($TextBox/Label.get_visible_characters() + 1)
 
 func _on_TextTime_timeout():
 	hide_text()

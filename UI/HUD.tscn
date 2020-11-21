@@ -254,6 +254,9 @@ text = "Time: %s"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="LetterTime" type="Timer" parent="."]
 [connection signal="timeout" from="TextTime" to="." method="_on_TextTime_timeout"]
 [connection signal="timeout" from="BleedTimer" to="." method="stop_bleeding"]
 [connection signal="pressed" from="PauseOverlay/VBoxContainer/RetryLevel" to="PauseOverlay/VBoxContainer/RetryLevel" method="_on_pressed"]
+[connection signal="timeout" from="LetterTime" to="." method="_on_LetterTime_timeout"]
