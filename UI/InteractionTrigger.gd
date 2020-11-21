@@ -1,12 +1,15 @@
-extends StaticBody2D
+extends Area2D
 
-export(String) var message
+export(String) var message = "Replace this text"
+export(bool) var show_only_once = true
+export(bool) var pause_while_message = true
+var shown = false
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _on_InteractionTrigger_body_entered(body):
+	if !shown:
+		HUDInfo.message = message
+		if pause_while_message:
+			HUDInfo.toggle_pause()
+		if show_only_once:
+			shown = true
