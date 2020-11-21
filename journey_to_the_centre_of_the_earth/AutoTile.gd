@@ -21,6 +21,8 @@ var object_properties = {}
 
 func _ready():
 	PlayerData.set_health(9, false)
+	PlayerData.die = false
+	PlayerData.connect("die", self, "die")
 
 func get_properties(type):
 	var properties
@@ -116,3 +118,6 @@ func _on_Player_interact(collision, time):
 				$CanvasLayer/HUD.show_text(get_prop(type, 'message', tile_pos), 2)
 		elif solid:
 			$CanvasLayer/HUD.show_text('This rock is too hard!', 2)
+			
+func die():
+	$CanvasLayer/HUD.toggle_game_menu()

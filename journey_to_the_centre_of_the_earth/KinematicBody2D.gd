@@ -9,7 +9,6 @@ const IMPACT_STRENGTH = 10
 
 var motion = Vector2()
 var last_direction = Vector2()
-var health = 10
 signal interact
 
 func _physics_process(delta):

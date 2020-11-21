@@ -10,6 +10,7 @@ onready var food_bar : ProgressBar = $FoodBar
 onready var health_bar : ProgressBar = $HealthBar
 
 var paused := false setget set_paused
+var menu := false setget set_menu
 var text_time = 3
 
 func _ready():
@@ -29,11 +30,10 @@ func _ready():
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
-		toggle_game_pause()
-		toggle_game_menu()
+		if !PlayerData.die:
+			toggle_game_menu()
 	
 	if event.is_action_pressed("ui_accept"):
-		print("ui_accept")
 		if $TextBox/Label.get_visible_characters() == ($TextBox/Label.get_total_character_count() + 1):
 			hide_text()
 			$TextTime.stop()
@@ -44,13 +44,27 @@ func toggle_game_pause() -> void:
 	self.paused = not paused
 	
 func toggle_game_menu() -> void:
-	pause_overlay.visible = paused
+	self.menu = not menu
+	self.paused = menu
+	show_menu()
+
+func show_menu():
+	if menu:
+		if PlayerData.die:
+			$PauseOverlay/Title.text = "Game Over!"
+		else:
+			$PauseOverlay/Title.text = "Game Paused"
+		pause_overlay.visible = true
+	else:
+		pause_overlay.visible = false
 
 func set_paused(value: bool) -> void:
-	print('Pause: ', value)
 	paused = value
 	scene_tree.paused = value
 	scene_tree.set_input_as_handled()
+
+func set_menu(value: bool) -> void:
+	menu = value
 
 func update_fuel(value : float) -> void:
 	food_bar.set_value(PlayerData.fuel)
@@ -82,7 +96,8 @@ func show_text(text, time = 3):
 
 func hide_text():
 	$TextBox.visible = false
-	set_paused(false)
+	if !menu:
+		set_paused(false)
 
 func _on_LetterTime_timeout():
 	if $TextBox/Label.get_visible_characters() == $TextBox/Label.get_total_character_count():

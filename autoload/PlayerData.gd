@@ -14,6 +14,7 @@ signal fuel_empty
 var health := max_health setget set_health
 var fuel := max_fuel setget set_fuel
 var can_drill := false setget set_drill
+var die = false
 
 
 func set_health(value : float, bleed: bool = true) -> void:
@@ -22,6 +23,7 @@ func set_health(value : float, bleed: bool = true) -> void:
 	health = clamp(value, 0, max_health)
 	emit_signal('health_changed', health)
 	if health == 0:
+		die = true
 		emit_signal('die')
 
 
