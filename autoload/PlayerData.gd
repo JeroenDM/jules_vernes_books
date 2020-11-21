@@ -15,8 +15,8 @@ var fuel := max_fuel setget set_fuel
 var can_drill := false setget set_drill
 
 
-func set_health(value : float) -> void:
-	if value < health:
+func set_health(value : float, bleed: bool = true) -> void:
+	if value < health and bleed:
 		emit_signal('bleed')
 	health = clamp(value, 0, max_health)
 	emit_signal('health_changed', health)
