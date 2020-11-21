@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://journey_to_the_centre_of_the_earth/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://journey_to_the_centre_of_the_earth/WorldComplete.tscn" type="PackedScene" id=2]
@@ -312,12 +312,6 @@ resource_local_to_scene = true
 } ]
 8/z_index = 0
 
-[sub_resource type="RectangleShape2D" id=12]
-extents = Vector2( 16, 96 )
-
-[sub_resource type="RectangleShape2D" id=13]
-extents = Vector2( 16, 128 )
-
 [node name="World" type="Node2D"]
 script = ExtResource( 4 )
 
@@ -366,27 +360,19 @@ collision_mask = 0
 next_world = "res://journey_to_the_centre_of_the_earth/Level2.tscn"
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 0, 8 )
+position = Vector2( 0, 32 )
 
-[node name="Node" type="Node" parent="."]
+[node name="Messages" type="Node" parent="."]
 
-[node name="Welcome" parent="Node" instance=ExtResource( 20 )]
+[node name="InteractionTrigger" parent="Messages" instance=ExtResource( 20 )]
+message = "Let's begin our journey. Using the arrows you can move left and right. With the up arrow you can jump over objects."
+
+[node name="Drill_cue" parent="Messages" instance=ExtResource( 20 )]
 position = Vector2( 448, -32 )
 message = "We need a drill to go straight down. For now let's find a cave to enter the earth."
 
-[node name="CollisionShape2D" parent="Node/Welcome" index="0"]
-shape = SubResource( 12 )
-
-[node name="Second" parent="Node" instance=ExtResource( 20 )]
+[node name="Crater_explanation" parent="Messages" instance=ExtResource( 20 )]
 position = Vector2( 1568, -640 )
 message = "This looks like the crater of a vulcano. A great place to start our journey!"
 pause_while_message = true
-
-[node name="CollisionShape2D" parent="Node/Second" index="0"]
-position = Vector2( 48, 8 )
-shape = SubResource( 13 )
 [connection signal="interact" from="Player" to="." method="_on_Player_interact"]
-
-[editable path="Node/Welcome"]
-
-[editable path="Node/Second"]
