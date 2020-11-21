@@ -128,7 +128,7 @@ next_scene_path = "res://around_the_world/levels/World.tscn"
 margin_left = 490.0
 margin_right = 731.0
 texture_normal = ExtResource( 4 )
-next_scene_path = "res://spacegame/SpaceGame.tscn"
+next_scene_path = "res://spacegame/Transition.tscn"
 
 [node name="ExitButton" parent="." instance=ExtResource( 7 )]
 anchor_left = 0.5
