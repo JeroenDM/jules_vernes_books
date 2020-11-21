@@ -15,13 +15,19 @@ onready var fuel_empty_message : Label = $OutOfFuelMessage
 
 func _ready() -> void:
 	PlayerData.connect("fuel_empty", self, "die")
+	# the animation for the fuel empty was a bit to fast
+	$AnimationPlayer.playback_speed = 0.5
 
 func die() -> void:
-	print("Out of fuel")
-	fuel_empty_message.visible = true
-	message_timer.start()
 	engine_thrust = 0.0
 	propeller_thrust = 0.0
+	$FuelTimer.paused = true
+	$AnimationPlayer.play("FuelTextAnimation")
+
+
+func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
+	if anim_name == "FuelTextAnimation":
+		restart()
 
 func restart() -> void:
 	fuel_empty_message.visible = false
@@ -81,3 +87,5 @@ func _on_food_detector_body_entered(body: Node) -> void:
 	body.queue_free()
 	PlayerData.fuel += 10
 	$food_detector/CollisionShape2D.disabled = false
+
+

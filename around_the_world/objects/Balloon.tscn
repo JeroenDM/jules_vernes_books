@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://around_the_world/objects/Balloon.gd" type="Script" id=1]
 [ext_resource path="res://assets/around_the_world/detailed_balloon.png" type="Texture" id=2]
 [ext_resource path="res://around_the_world/objects/Winch.tscn" type="PackedScene" id=3]
 [ext_resource path="res://UI/theme.tres" type="Theme" id=4]
+[ext_resource path="res://around_the_world/objects/FuelTimer.gd" type="Script" id=5]
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 5.0
@@ -16,6 +17,22 @@ radius = 105.47
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 25.2955, 6.27935 )
+
+[sub_resource type="Animation" id=5]
+resource_name = "FuelTextAnimation"
+length = 1.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("OutOfFuelMessage:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false, true, false, true, false, true, false ]
+}
 
 [node name="Balloon" type="RigidBody2D"]
 collision_mask = 2
@@ -62,10 +79,6 @@ collision_mask = 16
 position = Vector2( 17.8585, -15.5677 )
 shape = SubResource( 4 )
 
-[node name="MessageTimer" type="Timer" parent="."]
-wait_time = 2.0
-one_shot = true
-
 [node name="OutOfFuelMessage" type="Label" parent="."]
 visible = false
 anchor_left = 0.5
@@ -76,10 +89,18 @@ margin_right = 97.0
 margin_bottom = -323.055
 theme = ExtResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Out of fuel!"
+text = "Out of food!"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="FuelTimer" type="Timer" parent="."]
+autostart = true
+script = ExtResource( 5 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/FuelTextAnimation = SubResource( 5 )
 [connection signal="body_entered" from="food_detector" to="." method="_on_food_detector_body_entered"]
-[connection signal="timeout" from="MessageTimer" to="." method="restart"]
+[connection signal="timeout" from="FuelTimer" to="FuelTimer" method="decrease_fuel"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
