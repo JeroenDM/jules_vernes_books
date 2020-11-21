@@ -4,12 +4,12 @@
 [ext_resource path="res://spacegame/SpaceShip.gd" type="Script" id=2]
 [ext_resource path="res://effects/Explosion.tscn" type="PackedScene" id=3]
 
-
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 40.5679
 height = 54.461
 
 [node name="SpaceShip" type="RigidBody2D"]
+collision_mask = 34
 gravity_scale = 0.0
 linear_damp = 0.5
 angular_damp = 5.0
