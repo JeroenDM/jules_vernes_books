@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://journey_to_the_centre_of_the_earth/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://journey_to_the_centre_of_the_earth/WorldComplete.tscn" type="PackedScene" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://assets/journey_to_the_center/Tiles/Objects/orange.png" type="Texture" id=17]
 [ext_resource path="res://assets/journey_to_the_center/Tiles/Objects/Heart.png" type="Texture" id=18]
 [ext_resource path="res://assets/journey_to_the_center/Tiles/Objects/Drill.png" type="Texture" id=19]
+[ext_resource path="res://UI/InteractionTrigger.tscn" type="PackedScene" id=20]
 
 [sub_resource type="TileSet" id=1]
 0/name = "Crack0.png 0"
@@ -351,4 +352,10 @@ position = Vector2( 1888, 3168 )
 next_world = "res://journey_to_the_centre_of_the_earth/Level2.tscn"
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, 8 )
+
+[node name="Node" type="Node" parent="."]
+
+[node name="InteractionTrigger" parent="Node" instance=ExtResource( 20 )]
+message = "Welcome in this game"
 [connection signal="interact" from="Player" to="." method="_on_Player_interact"]
