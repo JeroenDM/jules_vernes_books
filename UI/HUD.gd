@@ -2,6 +2,7 @@ extends Control
 
 export(bool) var enable_food_bar = true
 export(bool) var enable_timer = true
+export(Color, RGBA) var bleed_color = Color(1, 0, 0, 1)
 
 # cache sceen tree for efficiency
 onready var scene_tree: = get_tree()
@@ -15,6 +16,7 @@ func _ready():
 	$FoodBar.visible = enable_food_bar
 	$LevelTimer.visible = enable_timer
 	$TextBox.visible = false
+	$BleedPanel.modulate = bleed_color
 	
 	PlayerData.connect("health_changed", self, "update_health")
 	PlayerData.connect("fuel_changed", self, "update_fuel")
@@ -43,11 +45,7 @@ func update_health(value : int) -> void:
 	health_bar.set_value(PlayerData.health)
 	
 func bleed() -> void:
-	$Panel.visible = true
-	$BleedTimer.start()
-
-func stop_bleeding() -> void:
-	$Panel.visible = false
+	$AnimationPlayer.play("bleed_animation")
 
 
 func update_time():
@@ -64,3 +62,4 @@ func hide_text():
 
 func _on_TextTime_timeout():
 	hide_text()
+
