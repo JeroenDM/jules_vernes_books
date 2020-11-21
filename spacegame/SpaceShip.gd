@@ -17,6 +17,9 @@ func get_input() -> void:
 		rotation_dir -= 1
 	if Input.is_action_pressed("ui_right"):
 		rotation_dir += 1
+	
+	if Input.is_action_just_pressed("ui_accept"):
+		$Explosion.boom()
 
 func _process(delta: float) -> void:
 	get_input()
