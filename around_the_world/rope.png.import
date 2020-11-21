@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/sky1.png-df6da1e8f17e6335831371c2de97d6d6.stex"
+path="res://.import/rope.png-e365c583684ed2b20f318dec43f9d2bd.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sky1.png"
-dest_files=[ "res://.import/sky1.png-df6da1e8f17e6335831371c2de97d6d6.stex" ]
+source_file="res://around_the_world/rope.png"
+dest_files=[ "res://.import/rope.png-e365c583684ed2b20f318dec43f9d2bd.stex" ]
 
 [params]
 

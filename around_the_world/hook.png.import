@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/platformPack_tile035.png-b6a6c12e794ac7e23271aaf4bd48fae6.stex"
+path="res://.import/hook.png-7c48ffa11fad8700498f121420637dbc.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/platformPack_tile035.png"
-dest_files=[ "res://.import/platformPack_tile035.png-b6a6c12e794ac7e23271aaf4bd48fae6.stex" ]
+source_file="res://around_the_world/hook.png"
+dest_files=[ "res://.import/hook.png-7c48ffa11fad8700498f121420637dbc.stex" ]
 
 [params]
 
