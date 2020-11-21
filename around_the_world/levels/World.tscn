@@ -9,7 +9,7 @@
 [ext_resource path="res://around_the_world/levels/NextLevelDetector.gd" type="Script" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 20.614, 539.321 )
+extents = Vector2( 20.614, 900.923 )
 
 [node name="World" type="Node2D"]
 __meta__ = {
@@ -63,20 +63,21 @@ position = Vector2( 6074.36, 727.852 )
 position = Vector2( 6759.34, 723.095 )
 
 [node name="NextLevelDetector" type="Area2D" parent="."]
-position = Vector2( 7417.2, 574.504 )
+position = Vector2( 7480.77, -69.6495 )
 monitorable = false
 collision_layer = 2
 script = ExtResource( 8 )
 next_scene_path = "res://UI/StartMenu.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevelDetector"]
+visible = false
 position = Vector2( 9.89941, -39.598 )
 shape = SubResource( 1 )
 
 [node name="ColorRect" type="ColorRect" parent="NextLevelDetector"]
 margin_top = -559.0
 margin_right = 40.0
-margin_bottom = 206.0
+margin_bottom = 844.0
 color = Color( 0.54902, 0.556863, 0.368627, 0.305882 )
 __meta__ = {
 "_edit_use_anchors_": false
