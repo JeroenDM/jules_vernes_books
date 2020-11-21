@@ -13,7 +13,7 @@ var max_properties = {'default': {'strength': 0, 'solid': false,
 					  5: {'message': 'You have collected a map'},
 					  6: {'message': 'You have collected something else entirely'},
 					  7: {'message': 'You have collected health', 'health': 10},
-					  8: {'message': 'You have collected health', 'add_drill': true},
+					  8: {'message': 'You have collected a drill', 'add_drill': true},
 					 }
 var tile_properties = {}
 var object_properties = {}
