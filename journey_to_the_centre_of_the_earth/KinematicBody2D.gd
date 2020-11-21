@@ -55,7 +55,7 @@ func _physics_process(delta):
 		var damage = round(max(impact-IMPACT_STRENGTH,0))
 		PlayerData.health -= damage
 	
-	# interact
+	# interact on input
 	if Input.is_action_pressed("ui_accept"):
 		var can_interact = true
 		for i in get_slide_count():
@@ -68,4 +68,3 @@ func _physics_process(delta):
 						$Sprite.play("Drill")
 				if Functions.is_parallel(collision.normal, -last_direction) and can_interact:
 					emit_signal('interact', collision, delta)
-		
