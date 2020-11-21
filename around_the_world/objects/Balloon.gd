@@ -1,9 +1,10 @@
 extends RigidBody2D
 
-export (float) var engine_thrust := 200.0
+export (float) var engine_thrust := 300.0
 export (float) var propeller_thrust := 200.0
 export (float) var impact_multiplier := 0.2
 export (float) var impact_threshold := 0.2
+export (float) var max_x_velocity := 500.0
 # use a curve instead of just a multiplier for the impact?
 # low values should to damage, but high values not extremely more
 
@@ -81,6 +82,10 @@ func _integrate_forces(state: Physics2DDirectBodyState) -> void:
 	else:
 		is_colliding = false
 
+	if linear_velocity.x > max_x_velocity:
+		state.linear_velocity.x = max_x_velocity
+	elif linear_velocity.x < -max_x_velocity:
+		state.linear_velocity.x = -max_x_velocity
 
 func _on_food_detector_body_entered(body: Node) -> void:
 	$food_detector/CollisionShape2D.disabled = true
