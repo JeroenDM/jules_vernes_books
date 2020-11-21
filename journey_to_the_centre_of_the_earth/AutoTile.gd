@@ -13,19 +13,16 @@ var max_properties = {'default': {'strength': 0, 'solid': false,
 					  5: {'message': 'You have collected a map'},
 					  6: {'message': 'You have collected something else entirely'},
 					  7: {'message': 'You have collected health', 'health': 10},
-					  8: {'message': 'You have collected health', 'add_drill': true},
+					  8: {'message': 'You have collected a drill', 'add_drill': true},
 					 }
 var tile_properties = {}
 var object_properties = {}
 
-onready var player_data = get_node("/root/PlayerData")
-
 
 func _ready():
-	player_data.connect('update_health', $CanvasLayer/HUD, 'set_health')
-	player_data.connect('update_fuel', $CanvasLayer/HUD, 'set_fuel')
-	player_data.connect('bleed', $CanvasLayer/HUD, 'bleed')
-
+	PlayerData.set_health(9, false)
+	PlayerData.die = false
+	PlayerData.connect("die", self, "die")
 
 func get_properties(type):
 	var properties
@@ -121,3 +118,6 @@ func _on_Player_interact(collision, time):
 				$CanvasLayer/HUD.show_text(get_prop(type, 'message', tile_pos), 2)
 		elif solid:
 			$CanvasLayer/HUD.show_text('This rock is too hard!', 2)
+			
+func die():
+	$CanvasLayer/HUD.toggle_game_menu()
