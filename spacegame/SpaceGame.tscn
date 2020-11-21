@@ -1,10 +1,20 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://spacegame/SpaceShip.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/spacegame/space_background.png" type="Texture" id=2]
 [ext_resource path="res://spacegame/Satellite.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/spacegame/moon.png" type="Texture" id=4]
+[ext_resource path="res://spacegame/moon.gd" type="Script" id=5]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 285.924
 
 [node name="SpaceLevel" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 279.698, 915.376 )
+current = true
+zoom = Vector2( 8, 8 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
 margin_left = -2870.15
@@ -29,38 +39,54 @@ position = Vector2( 682.517, 2324.41 )
 rotation = -1.5708
 spin_thrust = 25000.0
 
-[node name="Satellite" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1846.61, 1226.89 )
+[node name="Sattelites" type="Node2D" parent="."]
+position = Vector2( -372.002, 484.119 )
+
+[node name="Satellite" parent="Sattelites" instance=ExtResource( 3 )]
+position = Vector2( 2218.61, 742.771 )
 linear_velocity = Vector2( -100, 0 )
 
-[node name="Satellite2" parent="." instance=ExtResource( 3 )]
-position = Vector2( -706.351, 831.872 )
+[node name="Satellite2" parent="Sattelites" instance=ExtResource( 3 )]
+position = Vector2( -334.349, 347.753 )
 linear_velocity = Vector2( 200, 0 )
 
-[node name="Satellite8" parent="." instance=ExtResource( 3 )]
-position = Vector2( -796.148, -928.149 )
+[node name="Satellite8" parent="Sattelites" instance=ExtResource( 3 )]
+position = Vector2( -424.146, -1412.27 )
 linear_velocity = Vector2( 200, 0 )
 
-[node name="Satellite9" parent="." instance=ExtResource( 3 )]
-position = Vector2( -1065.54, -254.672 )
+[node name="Satellite9" parent="Sattelites" instance=ExtResource( 3 )]
+position = Vector2( -693.538, -738.791 )
 linear_velocity = Vector2( 200, 0 )
 
-[node name="Satellite3" parent="." instance=ExtResource( 3 )]
-position = Vector2( -372.002, 484.119 )
+[node name="Satellite3" parent="Sattelites" instance=ExtResource( 3 )]
 linear_velocity = Vector2( 100, 0 )
 
-[node name="Satellite4" parent="." instance=ExtResource( 3 )]
-position = Vector2( -308.502, 1526.05 )
+[node name="Satellite4" parent="Sattelites" instance=ExtResource( 3 )]
+position = Vector2( 63.5, 1041.93 )
 linear_velocity = Vector2( 100, 0 )
 
-[node name="Satellite5" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1909.44, 336.785 )
+[node name="Satellite5" parent="Sattelites" instance=ExtResource( 3 )]
+position = Vector2( 2281.44, -147.334 )
 linear_velocity = Vector2( -200, 0 )
 
-[node name="Satellite6" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1837.6, -722.819 )
+[node name="Satellite6" parent="Sattelites" instance=ExtResource( 3 )]
+position = Vector2( 2209.6, -1206.94 )
 linear_velocity = Vector2( -200, 0 )
 
-[node name="Satellite7" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1864.54, -201.997 )
+[node name="Satellite7" parent="Sattelites" instance=ExtResource( 3 )]
+position = Vector2( 2236.54, -686.116 )
 linear_velocity = Vector2( -200, 0 )
+
+[node name="moon" type="Sprite" parent="."]
+position = Vector2( 662.843, -1545.22 )
+texture = ExtResource( 4 )
+script = ExtResource( 5 )
+next_scene_path = "res://UI/StartMenu.tscn"
+
+[node name="Area2D" type="Area2D" parent="moon"]
+monitorable = false
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="moon/Area2D"]
+shape = SubResource( 1 )
+[connection signal="body_entered" from="moon/Area2D" to="moon" method="_on_Area2D_body_entered"]
