@@ -8,8 +8,6 @@ var shown = false
 
 func _on_InteractionTrigger_body_entered(body):
 	if !shown:
-		HUDInfo.message = message
-		if pause_while_message:
-			HUDInfo.toggle_pause()
+		HUDInfo.set_message(message, 3, pause_while_message)
 		if show_only_once:
 			shown = true

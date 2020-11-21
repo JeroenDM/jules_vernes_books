@@ -20,6 +20,8 @@ func _ready():
 	PlayerData.connect("fuel_changed", self, "update_fuel")
 	PlayerData.connect("bleed", self, "bleed")
 	LevelData.connect("time_changed", self, "update_time")
+	HUDInfo.connect("update_message", self, "update_message")
+	HUDInfo.connect("set_paused", self, "set_paused")
 	
 	health_bar.set_max(PlayerData.max_health)
 	food_bar.set_max(PlayerData.max_fuel)
@@ -27,14 +29,20 @@ func _ready():
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
 		print("input paused: ")
-		self.paused = not paused
-		scene_tree.set_input_as_handled()
+		toggle_game_pause()
+		toggle_game_menu()
+		
+func toggle_game_pause() -> void:
+	self.paused = not paused
+	
+func toggle_game_menu() -> void:
+	pause_overlay.visible = paused
 
 func set_paused(value: bool) -> void:
+	print('Pause: ', value)
 	paused = value
-	print("paused: ", value)
 	scene_tree.paused = value
-	pause_overlay.visible = value
+	scene_tree.set_input_as_handled()
 
 func update_fuel(value : float) -> void:
 	food_bar.set_value(PlayerData.fuel)
@@ -49,18 +57,22 @@ func bleed() -> void:
 func stop_bleeding() -> void:
 	$Panel.visible = false
 
-
 func update_time():
 	$LevelTimer.text = "Time: %d" % LevelData.time
 
-
-func show_text(text, time = 3):
+func update_message(text, time = 3, pause = false):
 	$TextTime.start(time)
 	$TextBox/Label.text = text
 	$TextBox.visible = true
+	if pause:
+		set_paused(true)
+
+func show_text(text, time = 3):
+	update_message(text, time)
 
 func hide_text():
 	$TextBox.visible = false
+	set_paused(false)
 
 func _on_TextTime_timeout():
 	hide_text()
