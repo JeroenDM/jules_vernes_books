@@ -10,12 +10,15 @@ signal fuel_changed
 signal bleed # move this to the player ?
 signal die
 signal fuel_empty
+signal level_2_unlocked
+signal level_3_unlocked
 
 var health := max_health setget set_health
 var fuel := max_fuel setget set_fuel
 var can_drill := false setget set_drill
 var die = false
 
+var level_locks : = {"Book1": false, "Book2": true, "Book3": true}
 
 func set_health(value : float, bleed: bool = true) -> void:
 	if value < health and bleed:

@@ -23,6 +23,7 @@ func _ready():
 	PlayerData.connect("health_changed", self, "update_health")
 	PlayerData.connect("fuel_changed", self, "update_fuel")
 	PlayerData.connect("bleed", self, "bleed")
+	
 	LevelData.connect("time_changed", self, "update_time")
 	HUDInfo.connect("update_message", self, "update_message")
 	HUDInfo.connect("set_paused", self, "set_paused")
