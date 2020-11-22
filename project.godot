@@ -25,6 +25,7 @@ PlayerData="*res://autoload/PlayerData.tscn"
 Functions="*res://autoload/Functions.tscn"
 LevelData="*res://autoload/LevelData.tscn"
 HUDInfo="*res://autoload/HUDInfo.tscn"
+MusicPlayer="*res://autoload/MusicPlayer.tscn"
 
 [input]
 
