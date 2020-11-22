@@ -25,6 +25,7 @@ position = Vector2( 0, -6.34961 )
 layer = 2
 
 [node name="HUD" parent="overlay" instance=ExtResource( 7 )]
+enable_timer = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
@@ -58,7 +59,7 @@ __meta__ = {
 }
 
 [node name="Balloon" parent="." instance=ExtResource( 3 )]
-position = Vector2( 155.414, 418.421 )
+position = Vector2( 112.602, 299.5 )
 
 [node name="Food" type="Node2D" parent="."]
 
@@ -93,8 +94,8 @@ position = Vector2( 6074.36, 727.852 )
 position = Vector2( 6759.34, 723.095 )
 
 [node name="InteractionTrigger" parent="." instance=ExtResource( 5 )]
-position = Vector2( 234.124, 442.487 )
-message = "In contrast to the book, we wel travel around the world using a balloon. Use arrow keys to control the balloon and space bar to pickup food along the way.  Watch out that you don't run out of food along the way!"
+position = Vector2( 226.989, 349.729 )
+message = "In contrast to the book, we will travel around the world using a balloon. Use arrow keys to control the balloon and space bar to pickup food along the way.  Watch out that you don't run out of food along the way!"
 pause_while_message = true
 [connection signal="body_entered" from="NextLevelDetector" to="NextLevelDetector" method="_on_body_entered"]
 

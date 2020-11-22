@@ -61,12 +61,13 @@ texture = ExtResource( 2 )
 [node name="ScaleTween" parent="balloon_sprite" instance=ExtResource( 7 )]
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 4.23779, 122.898 )
 current = true
 zoom = Vector2( 1.5, 1.5 )
 limit_left = 0
 limit_top = -500
 limit_right = 8196
-limit_bottom = 760
+limit_bottom = 800
 
 [node name="circle" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -211.655 )
