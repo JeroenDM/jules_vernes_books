@@ -14,7 +14,7 @@
    version="1.1"
    id="svg8"
    inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"
-   sodipodi:docname="tree.svg">
+   sodipodi:docname="Earth1.svg">
   <defs
      id="defs2" />
   <sodipodi:namedview
@@ -24,20 +24,18 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.98994949"
-     inkscape:cx="401.49625"
-     inkscape:cy="822.57571"
+     inkscape:zoom="0.49497475"
+     inkscape:cx="203.53917"
+     inkscape:cy="573.36818"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
      showgrid="false"
-     inkscape:snap-global="true"
-     inkscape:snap-bbox="true"
-     inkscape:window-width="1920"
-     inkscape:window-height="986"
-     inkscape:window-x="-11"
-     inkscape:window-y="-11"
-     inkscape:window-maximized="1" />
+     inkscape:window-width="1624"
+     inkscape:window-height="1020"
+     inkscape:window-x="38"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0" />
   <metadata
      id="metadata5">
     <rdf:RDF>
@@ -54,20 +52,13 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
-    <path
-       id="rect10"
-       style="fill:#247a75;fill-rule:evenodd;stroke-width:0.910133;fill-opacity:1"
-       d="M 346.42773 604.85742 L 346.41406 605.01562 L 223.57227 747.14258 L 307.14258 718.57227 L 153.57227 905 L 327.14258 843.57227 L 327.14258 1055.7148 L 365.71484 1055.7148 L 365.71484 843.57227 L 539.28516 905 L 385.71484 718.57227 L 469.28516 747.14258 L 346.44141 605.01562 L 346.42773 604.85742 z "
-       transform="scale(0.26458333)"
-       inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96" />
-    <rect
-       style="fill:#513110;stroke-width:0.264583;fill-opacity:1"
-       id="rect854"
-       width="10.205355"
-       height="56.129471"
-       x="86.556694"
-       y="223.19516"
+    <circle
+       style="fill:#247a75;fill-opacity:1;stroke-width:0.264583"
+       id="path833"
+       cx="110.91686"
+       cy="159.02538"
+       r="67.351921"
+       inkscape:export-filename="C:\Users\Jef\path833.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <image
@@ -264,8 +255,8 @@ IleZQlzezwb96kpP4Z+e3JMJoZiETAjFJGRCKCYhE0IxCZkQiknIhFBMQiaEYhIyIRSTkAmhmIRM
 CMUkZEIoJiETQjEJmRCKSciEUExCJoRiEjIhFJOQCaGYhEwIxSRkQigmIRNCMQmZEIpJyIRQTAsE
 auVXwgmh0P8HwBffGqlqyHIAAAAASUVORK5CYII=
 "
-       id="image867"
-       x="215.30978"
-       y="173.51233" />
+       id="image845"
+       x="234.82045"
+       y="101.08228" />
   </g>
 </svg>

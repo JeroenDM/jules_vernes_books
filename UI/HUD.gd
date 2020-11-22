@@ -86,6 +86,7 @@ func update_message(text, time = 3, pause = false):
 	$TextBox/Label.set_visible_characters(0)
 	$TextBox.visible = true
 	$LetterTime.start(0.03)
+	$TextTime.stop()
 	if pause:
 		set_paused(true)
 

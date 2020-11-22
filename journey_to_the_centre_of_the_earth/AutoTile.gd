@@ -6,12 +6,6 @@ var max_properties = {'default': {'strength': 0, 'solid': false,
 					  'tile': {'strength': max_tile_strength}, 
 					  -1: {},
 					  0: {'solid': true},
-					  1: {'message': 'You have collected a ladder'},
-					  2: {'message': 'You have collected food'},
-					  3: {'message': 'You have collected explosives'},
-					  4: {'message': 'You have collected a platform'},
-					  5: {'message': 'You have collected a map'},
-					  6: {'message': 'You have collected something else entirely'},
 					  7: {'message': 'You have collected health', 'health': 10},
 					  8: {'message': 'You have collected a drill', 'add_drill': true},
 					 }
@@ -95,7 +89,7 @@ func _on_Player_interact(collision, time):
 #				$Objects.set_cellv(tile_pos, object)
 		elif solid:
 			$CanvasLayer/HUD.show_text('This rock is too hard!', 2)
-	elif target.name == 'Objects':
+	elif target.name == 'ObjectsStatic':
 		var tile_pos = $Ground.world_to_map($Player.position)
 		
 		tile_pos -= collision.normal

@@ -17,16 +17,6 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 6 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 2 ) ],
-"loop": true,
-"name": "Run",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
 "name": "Jump",
@@ -41,6 +31,16 @@ animations = [ {
 "loop": true,
 "name": "Fall",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "Run",
+"speed": 10.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
@@ -125,6 +125,8 @@ smoothing_enabled = true
 [node name="Background1" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Background1"]
+z_index = -1
+z_as_relative = false
 motion_scale = Vector2( 0.9, 0.9 )
 motion_mirroring = Vector2( 2048, 0 )
 
@@ -149,16 +151,19 @@ __meta__ = {
 }
 
 [node name="Background2" type="ParallaxBackground" parent="Background1/ParallaxLayer"]
+layer = -101
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Background1/ParallaxLayer/Background2"]
+z_index = -2
+z_as_relative = false
 motion_scale = Vector2( 0.8, 0.6 )
 motion_mirroring = Vector2( 2048, 0 )
 
 [node name="TextureRect" type="TextureRect" parent="Background1/ParallaxLayer/Background2/ParallaxLayer"]
 modulate = Color( 1, 1, 1, 0.623529 )
-margin_left = -584.0
+margin_left = -585.0
 margin_top = -156.0
-margin_right = 4432.0
+margin_right = 4431.0
 margin_bottom = 56.0
 texture = ExtResource( 13 )
 stretch_mode = 2
@@ -176,16 +181,23 @@ __meta__ = {
 }
 
 [node name="Background3" type="ParallaxBackground" parent="Background1/ParallaxLayer/Background2/ParallaxLayer"]
+layer = -102
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Background1/ParallaxLayer/Background2/ParallaxLayer/Background3"]
+z_index = -3
+z_as_relative = false
 motion_scale = Vector2( 0.7, 0.7 )
 motion_mirroring = Vector2( 2048, 0 )
 
 [node name="background_1" type="Sprite" parent="Background1/ParallaxLayer/Background2/ParallaxLayer/Background3/ParallaxLayer"]
 position = Vector2( 1024, -432 )
+z_index = -4
+z_as_relative = false
 texture = ExtResource( 11 )
 
 [node name="TileMap" type="TileMap" parent="Background1/ParallaxLayer/Background2/ParallaxLayer/Background3/ParallaxLayer"]
+z_index = -3
+z_as_relative = false
 tile_set = SubResource( 3 )
 format = 1
 tile_data = PoolIntArray( -786409, 4, 0, -655354, 0, 0, -458751, 2, 0, -262120, 3, 0 )
