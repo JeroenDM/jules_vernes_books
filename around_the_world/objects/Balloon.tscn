@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://around_the_world/objects/Balloon.gd" type="Script" id=1]
 [ext_resource path="res://assets/around_the_world/detailed_balloon.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://UI/theme.tres" type="Theme" id=4]
 [ext_resource path="res://around_the_world/objects/FuelTimer.gd" type="Script" id=5]
 [ext_resource path="res://sounds/balloon.wav" type="AudioStream" id=6]
+[ext_resource path="res://effects/ScaleTween.tscn" type="PackedScene" id=7]
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 5.0
@@ -56,6 +57,8 @@ shape = SubResource( 2 )
 position = Vector2( -2.61414, -140.325 )
 scale = Vector2( 1.04059, 1.04059 )
 texture = ExtResource( 2 )
+
+[node name="ScaleTween" parent="balloon_sprite" instance=ExtResource( 7 )]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
