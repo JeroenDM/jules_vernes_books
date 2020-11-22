@@ -13,6 +13,7 @@ var direction := 0
 
 onready var message_timer : Timer = $MessageTimer
 onready var fuel_empty_message : Label = $OutOfFuelMessage
+onready var burner_sound : AudioStreamPlayer = $AudioStreamPlayer
 
 func _ready() -> void:
 	PlayerData.connect("fuel_empty", self, "die")
@@ -39,7 +40,10 @@ func restart() -> void:
 func get_input() -> void:
 	if Input.is_action_pressed("ui_up"):
 		thrust.y = -engine_thrust
+		if not burner_sound.playing:
+			burner_sound.play()
 	else:
+		burner_sound.stop()
 		thrust.y = 0.0
 	
 	direction = 0

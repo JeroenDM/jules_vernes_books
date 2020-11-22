@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://around_the_world/objects/Balloon.gd" type="Script" id=1]
 [ext_resource path="res://assets/around_the_world/detailed_balloon.png" type="Texture" id=2]
 [ext_resource path="res://around_the_world/objects/Winch.tscn" type="PackedScene" id=3]
 [ext_resource path="res://UI/theme.tres" type="Theme" id=4]
 [ext_resource path="res://around_the_world/objects/FuelTimer.gd" type="Script" id=5]
+[ext_resource path="res://sounds/balloon.wav" type="AudioStream" id=6]
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 5.0
@@ -104,6 +105,9 @@ fuel_reduction = 0.7
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/FuelTextAnimation = SubResource( 5 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
 [connection signal="body_entered" from="food_detector" to="." method="_on_food_detector_body_entered"]
 [connection signal="timeout" from="FuelTimer" to="FuelTimer" method="decrease_fuel"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
