@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://UI/theme.tres" type="Theme" id=1]
 [ext_resource path="res://UI/StartLevelTextureButton.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://UI/ExitButton.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/generic/background_1.png" type="Texture" id=8]
 [ext_resource path="res://UI/UnlockStartMenuButtons.gd" type="Script" id=9]
+[ext_resource path="res://UI/CreditsButton.gd" type="Script" id=10]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -182,10 +183,25 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ExitButton" parent="VBoxContainer/CenterContainer" instance=ExtResource( 7 )]
-margin_left = 215.0
-margin_right = 365.0
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CenterContainer"]
+margin_left = 138.0
+margin_right = 442.0
+margin_bottom = 50.0
+
+[node name="ExitButton" parent="VBoxContainer/CenterContainer/HBoxContainer" instance=ExtResource( 7 )]
+margin_right = 150.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 150, 50 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="CreditsButton2" parent="VBoxContainer/CenterContainer/HBoxContainer" instance=ExtResource( 7 )]
+margin_left = 154.0
+margin_right = 304.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 150, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Credits"
+script = ExtResource( 10 )
+next_scene_path = "res://UI/Credits.tscn"
