@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://spacegame/SpaceShip.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/spacegame/space_background.png" type="Texture" id=2]
@@ -6,9 +6,13 @@
 [ext_resource path="res://assets/spacegame/moon.png" type="Texture" id=4]
 [ext_resource path="res://spacegame/moon.gd" type="Script" id=5]
 [ext_resource path="res://UI/HUD.tscn" type="PackedScene" id=6]
+[ext_resource path="res://UI/InteractionTrigger.tscn" type="PackedScene" id=7]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 285.924
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 304.719
 
 [node name="SpaceLevel" type="Node2D"]
 
@@ -116,11 +120,22 @@ position = Vector2( 662.843, -1545.22 )
 texture = ExtResource( 4 )
 script = ExtResource( 5 )
 next_scene_path = "res://UI/StartMenu.tscn"
-message = "You made it!!! And with all the space junk you encountered you decide to settle here. Enjoy you stay on the moon with some good books!"
 
 [node name="Area2D" type="Area2D" parent="moon"]
+pause_mode = 2
+position = Vector2( 0, -3.56372 )
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="moon/Area2D"]
 shape = SubResource( 1 )
+
+[node name="InteractionTrigger" parent="." instance=ExtResource( 7 )]
+position = Vector2( 663.327, -1549.59 )
+message = "You made it!!! And with all the space junk you encountered you decide to settle here. Enjoy you stay on the moon with some good books!"
+pause_while_message = true
+
+[node name="CollisionShape2D" parent="InteractionTrigger" index="0"]
+shape = SubResource( 2 )
 [connection signal="body_entered" from="moon/Area2D" to="moon" method="_on_Area2D_body_entered"]
+
+[editable path="InteractionTrigger"]
