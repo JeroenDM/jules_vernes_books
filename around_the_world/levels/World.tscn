@@ -95,7 +95,6 @@ position = Vector2( 6759.34, 723.095 )
 [node name="InteractionTrigger" parent="." instance=ExtResource( 5 )]
 position = Vector2( 234.124, 442.487 )
 message = "In contrast to the book, we wel travel around the world using a balloon. Use arrow keys to control the balloon and space bar to pickup food along the way.  Watch out that you don't run out of food along the way!"
-message_duration = 4
 pause_while_message = true
 [connection signal="body_entered" from="NextLevelDetector" to="NextLevelDetector" method="_on_body_entered"]
 
