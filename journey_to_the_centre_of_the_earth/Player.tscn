@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://journey_to_the_centre_of_the_earth/KinematicBody2D.gd" type="Script" id=1]
 [ext_resource path="res://assets/journey_to_the_center/Player/Run7.png" type="Texture" id=2]
@@ -14,14 +14,10 @@
 [ext_resource path="res://assets/journey_to_the_center/Player/Drill1.png" type="Texture" id=12]
 [ext_resource path="res://assets/generic/mountains.png" type="Texture" id=13]
 [ext_resource path="res://assets/generic/clouds.png" type="Texture" id=14]
+[ext_resource path="res://effects/ScaleTween.tscn" type="PackedScene" id=15]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 5 ) ],
-"loop": true,
-"name": "Jump",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 12 ) ],
 "loop": true,
 "name": "Drill",
@@ -41,6 +37,11 @@ animations = [ {
 "loop": true,
 "name": "Run",
 "speed": 10.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "Jump",
+"speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
@@ -113,6 +114,8 @@ script = ExtResource( 1 )
 frames = SubResource( 1 )
 animation = "Idle"
 playing = true
+
+[node name="ScaleTween" parent="Sprite" instance=ExtResource( 15 )]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 4 )
