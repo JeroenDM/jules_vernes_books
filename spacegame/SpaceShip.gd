@@ -8,6 +8,14 @@ onready var audio_player : AudioStreamPlayer = $AudioStreamPlayer
 var thrust: = Vector2.ZERO
 var rotation_dir: = 0
 
+func _ready():
+	PlayerData.connect("die", self, "restart")
+
+func restart():
+	PlayerData.fuel = PlayerData.max_fuel
+	PlayerData.health = PlayerData.max_health
+	get_tree().reload_current_scene()
+
 func get_input() -> void:
 	if Input.is_action_pressed("ui_up"):
 		thrust = Vector2(engine_thrust, 0)

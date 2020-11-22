@@ -116,6 +116,7 @@ position = Vector2( 662.843, -1545.22 )
 texture = ExtResource( 4 )
 script = ExtResource( 5 )
 next_scene_path = "res://UI/StartMenu.tscn"
+message = "You made it!!! And with all the space junk you encountered you decide to settle here. Enjoy you stay on the moon with some good books!"
 
 [node name="Area2D" type="Area2D" parent="moon"]
 collision_layer = 2
