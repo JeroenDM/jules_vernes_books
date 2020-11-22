@@ -1,12 +1,13 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://UI/theme.tres" type="Theme" id=1]
 [ext_resource path="res://UI/StartLevelTextureButton.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/book_covers/book1.jpg" type="Texture" id=3]
-[ext_resource path="res://assets/book_covers/book3.jpg" type="Texture" id=4]
-[ext_resource path="res://assets/book_covers/book2.jpg" type="Texture" id=5]
+[ext_resource path="res://assets/book_covers/Core.png" type="Texture" id=3]
+[ext_resource path="res://assets/book_covers/Rocket.png" type="Texture" id=4]
+[ext_resource path="res://assets/book_covers/Balloon.png" type="Texture" id=5]
 [ext_resource path="res://UI/title_font.tres" type="DynamicFont" id=6]
 [ext_resource path="res://UI/ExitButton.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/generic/background_1.png" type="Texture" id=8]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -70,7 +71,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color( 0.839216, 0.839216, 0.839216, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -2.24493
+margin_right = 1024.0
+margin_bottom = 421.755
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Background" type="ColorRect" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.258824, 0.141176, 0.270588, 1 )
@@ -79,6 +93,7 @@ __meta__ = {
 }
 
 [node name="Fog" type="ColorRect" parent="."]
+visible = false
 material = SubResource( 2 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -124,12 +139,20 @@ __meta__ = {
 }
 
 [node name="Book1" parent="VBoxContainer/HBoxContainer" instance=ExtResource( 2 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_right = 191.0
 margin_bottom = 311.0
 texture_normal = ExtResource( 3 )
 next_scene_path = "res://journey_to_the_centre_of_the_earth/Level1.tscn"
 
 [node name="Book2" parent="VBoxContainer/HBoxContainer" instance=ExtResource( 2 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 195.0
 margin_right = 386.0
 margin_bottom = 311.0
@@ -137,6 +160,10 @@ texture_normal = ExtResource( 5 )
 next_scene_path = "res://around_the_world/levels/World.tscn"
 
 [node name="Book3" parent="VBoxContainer/HBoxContainer" instance=ExtResource( 2 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 390.0
 margin_right = 581.0
 margin_bottom = 311.0
